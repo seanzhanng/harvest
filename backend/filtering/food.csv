@@ -1,0 +1,2430 @@
+index,name
+0,100 GRAND Bar
+1,3 MUSKETEERS Bar
+2,3 Musketeers Truffle Crisp Bar
+3,Abalone
+4,Adobo
+5,Agave liquid sweetener
+6,Air filled fritter or fried puff
+7,Alcoholic malt beverage
+8,Alexander
+9,Alfalfa sprouts
+10,Alfredo sauce
+11,Alfredo sauce with added vegetables
+12,Alfredo sauce with meat
+13,Alfredo sauce with meat and added vegetables
+14,Alfredo sauce with poultry
+15,Alfredo sauce with poultry and added vegetables
+16,Alfredo sauce with seafood
+17,Alfredo sauce with seafood and added vegetables
+18,Almond butter
+19,Almond chicken
+20,Almond milk
+21,Almond oil
+22,Almond paste
+23,Almonds
+24,Aloe vera juice drink
+25,Ambrosia
+26,Anchovy
+27,Animal fat or drippings
+28,Anisette toast
+29,Antipasto with ham
+30,Apple
+31,Apple cider
+32,Apple juice
+33,Apple juice beverage
+34,Apple pie filling
+35,Apple salad with dressing
+36,Apple yogurt dessert
+37,Apple-banana juice
+38,Apple-cherry juice
+39,Apple-fruit juice blend
+40,Apple-grape juice
+41,Apple-peach juice
+42,Apple-prune juice
+43,Apple-raspberry
+44,Apple-sweet potato juice
+45,Apples
+46,Apples and chicken
+47,Apples and pears
+48,Apples and sweet potatoes
+49,Apples with ham
+50,Applesauce
+51,Applesauce and apricots
+52,Applesauce with bananas
+53,Applesauce with cherries
+54,Apricot
+55,Apricot nectar
+56,Apricots
+57,Arepa Dominicana
+58,Armadillo
+59,Artichoke
+60,Artichoke dip
+61,Artichokes
+62,Asian chicken or turkey garden salad
+63,Asian chicken or turkey garden salad with crispy noodles
+64,Asian stir fry vegetables
+65,Asparagus
+66,Asparagus soup
+67,Avocado
+68,Avocado dressing
+69,Baby Ruth
+70,Bacardi cocktail
+71,Bacon
+72,Bacon and cheese sandwich
+73,Bacon and egg sandwich
+74,Bacon and tomato dressing
+75,Bacon bits
+76,Bacon on biscuit
+77,Bacon or side pork
+78,Bacon sandwich
+79,Bacon soup
+80,Bacon strip
+81,Bagel
+82,Bagel chips
+83,Baked beans
+84,Baked beans from fast food / restaurant
+85,Baklava
+86,Bamboo shoots
+87,Banana
+88,Banana apple dessert
+89,Banana chips
+90,Banana juice with lowfat yogurt
+91,Banana nectar
+92,Banana pudding
+93,Banana split
+94,Banana with mixed berries
+95,Banana yogurt dessert
+96,Bananas
+97,Bananas and pineapple
+98,Bananas and strawberry
+99,Bananas with apples and pears
+100,Bananas with orange
+101,Barbecue sauce
+102,Barfi or Burfi
+103,Barley
+104,Barley cereal
+105,Barley soup
+106,Barracuda
+107,Basbousa
+108,Basil
+109,Bean and ham soup
+110,Bean cake
+111,Bean chips
+112,Bean dip
+113,Bean paste
+114,Bean salad
+115,Bean soup
+116,Bean sprouts
+117,Bean with bacon or ham soup
+118,Beans
+119,Beans and brown rice
+120,Beans and franks
+121,Beans and rice
+122,Beans and tomatoes
+123,Beans and white rice
+124,Beans with meat
+125,Bear
+126,Beaver
+127,Beef
+128,Beef and broccoli
+129,Beef and egg noodles
+130,Beef and macaroni with cheese sauce
+131,Beef and noodles
+132,Beef and noodles with cream or white sauce
+133,Beef and noodles with gravy
+134,Beef and noodles with meat sauce and cheese
+135,Beef and noodles with mushroom sauce
+136,Beef and noodles with soy-based sauce
+137,Beef and noodles with tomato-based sauce
+138,Beef and potatoes
+139,Beef and potatoes with cheese sauce
+140,Beef and potatoes with cream sauce
+141,Beef and rice
+142,Beef and rice soup
+143,Beef and rice with cheese sauce
+144,Beef and rice with cream sauce
+145,Beef and rice with gravy
+146,Beef and rice with mushroom sauce
+147,Beef and rice with soy-based sauce
+148,Beef and rice with tomato-based sauce
+149,Beef and vegetables
+150,Beef and vegetables excluding carrots
+151,Beef and vegetables including carrots
+152,Beef barbecue submarine sandwich
+153,Beef brisket
+154,Beef broth
+155,Beef burgundy
+156,Beef chow mein or chop suey
+157,Beef chow mein or chop suey with noodles
+158,Beef curry
+159,Beef curry with rice
+160,Beef dinner
+161,Beef dumpling soup
+162,Beef egg foo yung
+163,Beef enchilada
+164,Beef enchilada dinner
+165,Beef goulash
+166,Beef goulash with noodles
+167,Beef goulash with potatoes
+168,Beef jerky
+169,Beef liver
+170,Beef noodle soup
+171,Beef pot pie
+172,Beef rice soup
+173,Beef rolls
+174,Beef salad
+175,Beef sandwich
+176,Beef sausage
+177,Beef sausage with cheese
+178,Beef shish kabob with vegetables
+179,Beef short ribs
+180,Beef sloppy joe
+181,Beef steak
+182,Beef steak with onions
+183,Beef stew
+184,Beef stew with potatoes
+185,Beef stew with potatoes and vegetables excluding carrots
+186,Beef stew with potatoes and vegetables including carrots
+187,Beef stew with vegetables excluding potatoes
+188,Beef stroganoff
+189,Beef stroganoff soup
+190,Beef stroganoff with noodles
+191,Beef taco filling: beef
+192,Beef vegetable soup
+193,Beef vegetable soup with potato
+194,Beef wellington
+195,Beef with barbecue sauce
+196,Beef with cream or white sauce
+197,Beef with gravy
+198,Beef with mushroom sauce
+199,Beef with soy-based sauce
+200,Beef with spaetzle or rice
+201,Beef with sweet and sour sauce
+202,Beef with tomato-based sauce
+203,Beef with vegetable
+204,Beef with vegetables
+205,Beef with vegetables excluding carrots
+206,Beef with vegetables including carrots
+207,Beer
+208,Beer cheese soup
+209,Beet greens
+210,Beet juice
+211,Beets
+212,Beignet
+213,Berries
+214,Bibimbap
+215,Big Mac (McDonalds)
+216,Bird's nest soup
+217,Biryani with chicken
+218,Biryani with meat
+219,Biryani with vegetables
+220,Biscayne codfish
+221,Biscuit
+222,Biscuit with fruit
+223,Biscuit with gravy
+224,Bison
+225,Bitter melon
+226,Black Russian
+227,Black bean salad
+228,Black bean sauce
+229,Black bean soup
+230,Black beans
+231,Black beans and brown rice
+232,Black beans and rice
+233,Black beans and white rice
+234,Black beans with meat
+235,Blackberries
+236,Blackberry juice
+237,Blackeyed peas
+238,Blintz
+239,Blood sausage
+240,Bloody Mary
+241,Bluberries
+242,Blue or roquefort cheese dressing
+243,Blueberries
+244,Blueberry juice
+245,Blueberry pie filling
+246,Blueberry syrup
+247,Blueberry yogurt dessert
+248,Bologna
+249,Bologna and cheese sandwich
+250,Bologna sandwich
+251,Borscht
+252,Bouillabaisse
+253,Brains
+254,Brandy
+255,Brandy and cola
+256,Bratwurst
+257,Brazil nuts
+258,Bread
+259,Bread stuffing
+260,Bread stuffing made with egg
+261,Breaded brains
+262,Breadfruit
+263,Breading or batter as ingredient in food
+264,Breadsticks
+265,Breakfast bar
+266,Breakfast link
+267,Breakfast meat as ingredient in omelet
+268,Breakfast pastry
+269,Breakfast pizza with egg
+270,Breakfast tart
+271,Brioche
+272,Broccoflower
+273,Broccoli
+274,Broccoli and cauliflower
+275,Broccoli and chicken
+276,Broccoli casserole with noodles
+277,Broccoli casserole with rice
+278,Broccoli cheese soup
+279,Broccoli raab
+280,Broccoli salad with cauliflower
+281,Broccoli slaw salad
+282,Broccoli soup
+283,Brown rice cereal
+284,Brunswick stew
+285,Bruschetta
+286,Brussels sprouts
+287,Buckwheat groats
+288,Buffalo chicken submarine sandwich
+289,Buffalo chicken submarine sandwich with cheese
+290,Buffalo sauce
+291,Bulgur
+292,Burdock
+293,Burrito
+294,Burrito with beans
+295,Burrito with beans and rice
+296,Burrito with chicken
+297,Burrito with chicken and beans
+298,Burrito with chicken and sour cream
+299,Burrito with meat
+300,Burrito with meat and beans
+301,Burrito with meat and sour cream
+302,Butter
+303,Butter replacement
+304,Butter-oil blend
+305,Butterfinger
+306,Butterfinger Crisp
+307,Buttermilk
+308,Butterscotch hard candy
+309,Butterscotch morsels
+310,Cabbage
+311,Cabbage salad or coleslaw
+312,Cabbage salad or coleslaw with apples and/or raisins
+313,Cabbage salad or coleslaw with pineapple
+314,Cabbage soup
+315,Cabbage with ham hocks
+316,Cabbage with meat soup
+317,Cactus
+318,Caesar dressing
+319,Caesar salad
+320,Cake
+321,Cake batter
+322,Cake made with glutinous rice
+323,Cake made with glutinous rice and dried beans
+324,Cake or cupcake
+325,Cake or pancake made with rice flour and/or dried beans
+326,Calabaza
+327,Calzone
+328,Canadian Club and soda
+329,Canadian bacon
+330,Candy
+331,Cannelloni
+332,Canola oil
+333,Cantaloupe
+334,Cantaloupe nectar
+335,Cape Cod
+336,Caramel
+337,Caramel candy
+338,Caramel dip
+339,Caramel with nuts
+340,Caramel with nuts and cereal
+341,Carbonated water
+342,Caribou
+343,Carob chips
+344,Carp
+345,Carrot juice
+346,Carrot soup
+347,Carrot with rice soup
+348,Carrots
+349,Carrots and beef
+350,Carrots and peas
+351,Casabe
+352,Cashew butter
+353,Cashews
+354,Cassaba melon
+355,Cassava
+356,Cassava Pasteles
+357,Cassava fritter stuffed with crab meat
+358,Catfish
+359,Cauliflower
+360,Celeriac
+361,Celery
+362,Celery juice
+363,Celery soup
+364,Cereal
+365,Cereal (Barbara's Puffins)
+366,Cereal (General Mills 25% Less Sugar Cinnamon Toast Crunch)
+367,Cereal (General Mills Cheerios Apple Cinnamon)
+368,Cereal (General Mills Cheerios Banana Nut)
+369,Cereal (General Mills Cheerios Berry Burst)
+370,Cereal (General Mills Cheerios Chocolate)
+371,Cereal (General Mills Cheerios Frosted)
+372,Cereal (General Mills Cheerios Fruity)
+373,Cereal (General Mills Cheerios Honey Nut)
+374,Cereal (General Mills Cheerios Multigrain)
+375,Cereal (General Mills Cheerios Oat Cluster Crunch)
+376,Cereal (General Mills Cheerios Protein)
+377,Cereal (General Mills Cheerios)
+378,Cereal (General Mills Chex Chocolate)
+379,Cereal (General Mills Chex Cinnamon)
+380,Cereal (General Mills Chex Corn)
+381,Cereal (General Mills Chex Honey Nut)
+382,Cereal (General Mills Chex Rice)
+383,Cereal (General Mills Chex Wheat)
+384,Cereal (General Mills Cinnamon Toast Crunch)
+385,Cereal (General Mills Cocoa Puffs)
+386,Cereal (General Mills Cookie Crisp)
+387,Cereal (General Mills Count Chocula)
+388,Cereal (General Mills Fiber One Honey Clusters)
+389,Cereal (General Mills Fiber One Raisin Bran Clusters)
+390,Cereal (General Mills Fiber One)
+391,Cereal (General Mills Frankenberry)
+392,Cereal (General Mills Golden Grahams)
+393,Cereal (General Mills Honey Kix)
+394,Cereal (General Mills Honey Nut Clusters)
+395,Cereal (General Mills Kix)
+396,Cereal (General Mills Lucky Charms Chocolate)
+397,Cereal (General Mills Lucky Charms)
+398,Cereal (General Mills Oatmeal Crisp with Almonds)
+399,Cereal (General Mills Raisin Nut Bran)
+400,Cereal (General Mills Reese's Puffs)
+401,Cereal (General Mills Trix)
+402,Cereal (General Mills Wheaties)
+403,Cereal (Kashi 7 Whole Grain Puffs)
+404,Cereal (Kashi Autumn Wheat)
+405,Cereal (Kashi GOLEAN Crunch Honey Almond Flax)
+406,Cereal (Kashi GOLEAN Crunch)
+407,Cereal (Kashi GOLEAN)
+408,Cereal (Kashi Heart to Heart Honey Toasted Oat)
+409,Cereal (Kellogg's All-Bran Complete Wheat Flakes)
+410,Cereal (Kellogg's All-Bran)
+411,Cereal (Kellogg's Apple Jacks)
+412,Cereal (Kellogg's Cocoa Krispies)
+413,Cereal (Kellogg's Corn Flakes)
+414,Cereal (Kellogg's Corn Pops)
+415,Cereal (Kellogg's Cracklin' Oat Bran)
+416,Cereal (Kellogg's Crispix)
+417,Cereal (Kellogg's Froot Loops Marshmallow)
+418,Cereal (Kellogg's Froot Loops)
+419,Cereal (Kellogg's Frosted Flakes)
+420,Cereal (Kellogg's Frosted Mini-Wheats)
+421,Cereal (Kellogg's Honey Smacks)
+422,Cereal (Kellogg's Krave)
+423,Cereal (Kellogg's Low Fat Granola)
+424,Cereal (Kellogg's Raisin Bran Crunch)
+425,Cereal (Kellogg's Raisin Bran)
+426,Cereal (Kellogg's Rice Krispies Treats Cereal)
+427,Cereal (Kellogg's Rice Krispies)
+428,Cereal (Kellogg's Smart Start Strong)
+429,Cereal (Kellogg's Smorz)
+430,Cereal (Kellogg's Special K Blueberry)
+431,Cereal (Kellogg's Special K Chocolatey Delight)
+432,Cereal (Kellogg's Special K Cinnamon Pecan)
+433,Cereal (Kellogg's Special K Fruit & Yogurt)
+434,Cereal (Kellogg's Special K Red Berries)
+435,Cereal (Kellogg's Special K Vanilla Almond)
+436,Cereal (Kellogg's Special K)
+437,Cereal (Malt-O-Meal Blueberry Muffin Tops)
+438,Cereal (Malt-O-Meal Cinnamon Toasters)
+439,Cereal (Malt-O-Meal Coco-Roos)
+440,Cereal (Malt-O-Meal Cocoa Dyno-Bites)
+441,Cereal (Malt-O-Meal Colossal Crunch)
+442,Cereal (Malt-O-Meal Corn Bursts)
+443,Cereal (Malt-O-Meal Frosted Flakes)
+444,Cereal (Malt-O-Meal Fruity Dyno-Bites)
+445,Cereal (Malt-O-Meal Golden Puffs)
+446,Cereal (Malt-O-Meal Honey Graham Squares)
+447,Cereal (Malt-O-Meal Honey Nut Toasty O's)
+448,Cereal (Malt-O-Meal Marshmallow Mateys)
+449,Cereal (Malt-O-Meal Toasted Oat Cereal)
+450,Cereal (Malt-O-Meal Tootie Fruities)
+451,Cereal (Nature Valley Granola)
+452,Cereal (Nature's Path Organic Flax Plus)
+453,Cereal (Post Alpha-Bits)
+454,Cereal (Post Bran Flakes)
+455,Cereal (Post Cocoa Pebbles)
+456,Cereal (Post Fruity Pebbles)
+457,Cereal (Post Golden Crisp)
+458,Cereal (Post Grape-Nuts)
+459,Cereal (Post Great Grains
+460,Cereal (Post Great Grains Banana Nut Crunch)
+461,Cereal (Post Great Grains Raisins
+462,Cereal (Post Honey Bunches of Oats Honey Roasted)
+463,Cereal (Post Honey Bunches of Oats with Almonds)
+464,Cereal (Post Honey Bunches of Oats with Vanilla Bunches)
+465,Cereal (Post Honeycomb)
+466,Cereal (Post Raisin Bran)
+467,Cereal (Post Shredded Wheat Honey Nut)
+468,Cereal (Post Shredded Wheat)
+469,Cereal (Quaker Cap'n Crunch's Crunchberries)
+470,Cereal (Quaker Cap'n Crunch's Peanut Butter Crunch)
+471,Cereal (Quaker Cap'n Crunch)
+472,Cereal (Quaker Christmas Crunch)
+473,Cereal (Quaker Granola with Oats
+474,Cereal (Quaker Honey Graham Oh's)
+475,Cereal (Quaker Life)
+476,Cereal (Quaker Oatmeal Squares)
+477,Cereal (Quaker Toasted Oat Bran)
+478,Cereal (Uncle Sam)
+479,Cereal bar with fruit filling
+480,Cereal beverage
+481,Cereal beverage with beet roots
+482,Cereal or Granola bar
+483,Cereal or granola bar
+484,Cereal or granola bar (General Mills Fiber One Chewy Bar)
+485,Cereal or granola bar (General Mills Nature Valley Chewy Trail Mix)
+486,Cereal or granola bar (General Mills Nature Valley Crunchy Granola Bar)
+487,Cereal or granola bar (General Mills Nature Valley Sweet and Salty Granola Bar)
+488,Cereal or granola bar (KIND Fruit and Nut Bar)
+489,Cereal or granola bar (Kashi Chewy)
+490,Cereal or granola bar (Kashi Crunchy)
+491,Cereal or granola bar (Kellogg's Nutri-Grain Cereal Bar)
+492,Cereal or granola bar (Kellogg's Nutri-Grain Fruit and Nut Bar)
+493,Cereal or granola bar (Kellogg's Nutri-Grain Yogurt Bar)
+494,Cereal or granola bar (Kellogg's Special K bar)
+495,Cereal or granola bar (Quaker Chewy 25% Less Sugar Granola Bar)
+496,Cereal or granola bar (Quaker Chewy 90 Calorie Granola Bar)
+497,Cereal or granola bar (Quaker Chewy Dipps Granola Bar)
+498,Cereal or granola bar (Quaker Chewy Granola Bar)
+499,Cereal or granola bar (Quaker Granola Bites)
+500,Cereal or granola bar with nuts
+501,Ceviche
+502,Champagne punch
+503,Channa Saag
+504,Chard
+505,Cheddar cheese soup
+506,Cheese
+507,Cheese as ingredient in sandwiches
+508,Cheese ball
+509,Cheese dip
+510,Cheese dip with chili pepper
+511,Cheese enchilada
+512,Cheese flavored corn snacks
+513,Cheese flavored corn snacks (Cheetos)
+514,Cheese fondue
+515,Cheese pastry puffs
+516,Cheese quiche
+517,Cheese sandwich
+518,Cheese sauce
+519,Cheese souffle
+520,Cheese spread
+521,Cheese turnover
+522,Cheeseburger
+523,Cheeseburger (Burger King)
+524,Cheeseburger (McDonalds)
+525,Cheeseburger slider
+526,Cheeseburger submarine sandwich with lettuce
+527,Cheesecake
+528,Cheesecake with fruit
+529,Cherries
+530,Cherry cobbler
+531,Cherry pie filling
+532,Cherry vanilla pudding
+533,Chestnuts
+534,Chewing gum
+535,Chia seeds
+536,Chicken
+537,"Chicken ""wings"""
+538,"Chicken ""wings"" with hot sauce"
+539,"Chicken ""wings"" with other sauces or seasoning"
+540,Chicken and noodles with vegetable
+541,Chicken and rice dinner
+542,Chicken and vegetable entree with noodles
+543,Chicken and vegetable entree with noodles and cream sauce
+544,Chicken and vegetable entree with rice
+545,Chicken and vegetables au gratin with rice
+546,Chicken barbecue sandwich
+547,Chicken breast
+548,Chicken chow mein with rice
+549,Chicken cornbread
+550,Chicken curry
+551,Chicken curry with rice
+552,Chicken dinner
+553,Chicken drumstick
+554,Chicken egg foo yung
+555,Chicken feet
+556,Chicken fillet
+557,Chicken fillet biscuit
+558,Chicken fillet sandwich
+559,Chicken fillet wrap sandwich
+560,Chicken fricassee
+561,Chicken in butter sauce with potatoes and vegetable
+562,Chicken in cream sauce with noodles and vegetable
+563,Chicken in mushroom sauce
+564,Chicken in soy-based sauce
+565,Chicken kiev
+566,Chicken leg
+567,Chicken liver
+568,Chicken noodle dinner
+569,Chicken nuggets
+570,Chicken or turkey
+571,Chicken or turkey a la king with vegetables excluding carrorts
+572,Chicken or turkey a la king with vegetables including carrots
+573,Chicken or turkey and corn hominy soup
+574,Chicken or turkey and noodles
+575,Chicken or turkey and noodles with cheese sauce
+576,Chicken or turkey and noodles with cream or white sauce
+577,Chicken or turkey and noodles with gravy
+578,Chicken or turkey and noodles with mushroom sauce
+579,Chicken or turkey and noodles with soy-based sauce
+580,Chicken or turkey and noodles with tomato-based sauce
+581,Chicken or turkey and potatoes with gravy
+582,Chicken or turkey and rice
+583,Chicken or turkey and rice with cream sauce
+584,Chicken or turkey and rice with mushroom sauce
+585,Chicken or turkey and rice with soy-based sauce
+586,Chicken or turkey and rice with tomato-based sauce
+587,Chicken or turkey and vegetables excluding carrots
+588,Chicken or turkey and vegetables including carrots
+589,Chicken or turkey broth
+590,Chicken or turkey cacciatore
+591,Chicken or turkey caesar garden salad
+592,Chicken or turkey cake
+593,Chicken or turkey chow mein or chop suey
+594,Chicken or turkey chow mein or chop suey with noodles
+595,Chicken or turkey cordon bleu
+596,Chicken or turkey corn soup with noodles
+597,Chicken or turkey creole
+598,Chicken or turkey divan
+599,Chicken or turkey fricassee
+600,Chicken or turkey garden salad
+601,Chicken or turkey garden salad with bacon and cheese
+602,Chicken or turkey garden salad with cheese
+603,Chicken or turkey gumbo soup
+604,Chicken or turkey hash
+605,Chicken or turkey mushroom soup
+606,Chicken or turkey noodle soup
+607,Chicken or turkey parmigiana
+608,Chicken or turkey pot pie
+609,Chicken or turkey rice soup
+610,Chicken or turkey salad
+611,Chicken or turkey salad with egg
+612,Chicken or turkey salad with nuts and/or fruits
+613,Chicken or turkey shish kabob with vegetables
+614,Chicken or turkey souffle
+615,Chicken or turkey soup
+616,Chicken or turkey soup with dumplings
+617,Chicken or turkey soup with dumplings and potatoes
+618,Chicken or turkey soup with vegetables
+619,Chicken or turkey soup with vegetables and fruit
+620,Chicken or turkey stew with potatoes and vegetables excluding carrots
+621,Chicken or turkey stew with potatoes and vegetables including carrots
+622,Chicken or turkey tetrazzini
+623,Chicken or turkey vegetable soup
+624,Chicken or turkey vegetable soup with noodles
+625,Chicken or turkey vegetable soup with potato and cheese
+626,Chicken or turkey vegetable soup with rice
+627,Chicken or turkey with cheese sauce
+628,Chicken or turkey with cream sauce
+629,Chicken or turkey with dumplings
+630,Chicken or turkey with mushroom sauce
+631,Chicken or turkey with stuffing
+632,Chicken or turkey with teriyaki
+633,Chicken patty
+634,Chicken patty or nuggets
+635,Chicken rice soup
+636,Chicken salad or chicken spread sandwich
+637,Chicken salad spread
+638,Chicken skin
+639,Chicken soup
+640,Chicken soup with noodles and potatoes
+641,Chicken stew
+642,Chicken stick
+643,Chicken submarine sandwich
+644,Chicken tenders or strips
+645,Chicken thigh
+646,Chicken wing
+647,Chicken with gravy
+648,Chicken with mole sauce
+649,Chicken with noodles and cheese sauce
+650,Chicken with rice and vegetable
+651,Chickpeas
+652,Chicory beverage
+653,Chilaquiles
+654,Chiles rellenos
+655,Chili con carne
+656,Chili con carne with beans
+657,Chili con carne with beans and cheese
+658,Chili con carne with beans and macaroni
+659,Chili con carne with beans and rice
+660,Chili con carne with chicken or turkey and beans
+661,Chili con carne with venison/deer and beans
+662,Chili con carne without beans
+663,Chili with beans
+664,Chiliburger
+665,Chimichanga
+666,Chimichanga with chicken
+667,Chimichanga with chicken and sour cream
+668,Chimichanga with meat
+669,Chimichanga with meat and sour cream
+670,Chinese pancake
+671,Chipotle dip
+672,Chips
+673,Chitterlings
+674,Chives
+675,Chocolate
+676,Chocolate beverage powder
+677,Chocolate candy with fondant and caramel
+678,Chocolate dip
+679,Chocolate milk
+680,Chocolate milk drink
+681,Chocolate syrup
+682,Chocolate-flavored sprinkles
+683,Chorizo
+684,Chow fun noodles with meat and vegetables
+685,Chow fun noodles with vegetables
+686,Chow mein or chop suey
+687,Christophine
+688,Churros
+689,Chutney
+690,Cilantro
+691,Clam cake or patty
+692,Clam chowder
+693,Clams
+694,Clams Casino
+695,Classic mixed vegetables
+696,Clementine
+697,Cobb salad
+698,Cobbler
+699,Cocktail
+700,Cocktail sauce
+701,Cocoa powder
+702,Coconut
+703,Coconut candy
+704,Coconut cream
+705,Coconut cream cake
+706,Coconut milk
+707,Coconut oil
+708,Coconut water
+709,Cod
+710,Codfish
+711,Codfish ball or cake
+712,Codfish fritter
+713,Codfish salad
+714,Codfish soup with noodles
+715,Codfish with starchy vegetables
+716,Coffee
+717,Coffee and chicory
+718,Coffee cake
+719,Coffee creamer
+720,Coffee substitute
+721,Cold cut sumarine sandwich
+722,Coleslaw dressing
+723,Collards
+724,Congee
+725,Cookie
+726,Cookie bar
+727,Cookies
+728,Cordial or liqueur
+729,Corn
+730,Corn and sweet potatoes
+731,Corn beverage
+732,Corn chips
+733,Corn dog
+734,Corn flour patty or tart
+735,Corn fritter
+736,Corn nuts
+737,Corn oil
+738,Corn pone
+739,Corn soup
+740,Corn syrup
+741,Cornbread
+742,Cornbread muffin
+743,Cornbread stuffing
+744,Corned beef
+745,Corned beef hash
+746,Corned beef patty
+747,Corned beef sandwich
+748,Corned beef with tomato sauce and onion
+749,Cornish game hen
+750,Cornmeal
+751,Cornmeal beverage
+752,Cornmeal beverage with chocolate milk
+753,Cornmeal coconut dessert
+754,Cornmeal dressing with chicken or turkey and vegetables
+755,Cornmeal dumpling
+756,Cornmeal fritter
+757,Cornmeal mush
+758,Cornmeal stick
+759,Cottage cheese
+760,Cottonseed oil
+761,Couscous
+762,Crab
+763,Crab cake
+764,Crab cake sandwich
+765,Crab imperial
+766,Crab salad
+767,Crab salad made with imitation crab
+768,Crab soup
+769,Crabs in tomato-based sauce
+770,Cracker chips
+771,Crackers
+772,Cranberries
+773,Cranberry juice
+774,Cranberry juice blend
+775,Cranberry juice drink
+776,Cranberry sauce
+777,Crayfish
+778,Cream
+779,Cream cheese
+780,Cream cheese spread
+781,Cream of rye
+782,Cream of wheat
+783,Cream puff
+784,Cream sauce
+785,Creamed chipped or dried beef
+786,Creamed christophine
+787,Creamsicle
+788,Creamy dressing
+789,Creme brulee
+790,Crepe
+791,Cress
+792,Crisp
+793,Croaker
+794,Croissant
+795,Croissant sandwich
+796,Croissant sandwich with bacon
+797,Croissant sandwich with bacon and egg
+798,Croissant sandwich with ham
+799,Croissant sandwich with sausage
+800,Croissant sandwich with sausage and egg
+801,Croutons
+802,Crumpet
+803,Crunchy snacks
+804,Cuban sandwich
+805,Cucumber
+806,Cucumber and vegetable namasu
+807,Cucumber salad
+808,Cucumber salad made with cucumber and vinegar
+809,Currants
+810,Curry sauce
+811,Custard
+812,Custard pudding
+813,Daikon radish
+814,Daiquiri
+815,Dandelion greens
+816,Danish pastry
+817,Dark green vegetables as ingredient in omelet
+818,Dark-green leafy vegetable soup
+819,Dark-green leafy vegetable soup with meat
+820,Dasheen
+821,Date
+822,Date candy
+823,Deer chop
+824,Deer sausage
+825,Dessert dip
+826,Dessert pizza
+827,Dessert sauce
+828,Dietetic or low calorie candy
+829,Dietetic or low calorie gumdrops
+830,Dietetic or low calorie hard candy
+831,Dietetic or low calorie mints
+832,Dill dip
+833,Dip
+834,Dirty rice
+835,Dosa (Indian)
+836,Double cheeseburger
+837,Double cheeseburger (Burger King)
+838,Double cheeseburger (McDonalds)
+839,Double hamburger
+840,Doughnut
+841,Doughnut holes
+842,Dove
+843,Dressing with chicken or turkey and vegetables
+844,Dressing with meat and vegetables
+845,Dressing with oysters
+846,Duck
+847,Duck egg
+848,Duck sauce
+849,Dukboki or Tteokbokki
+850,Dumpling
+851,Dutch apple dessert
+852,Easter egg
+853,Edamame
+854,Eel
+855,Egg
+856,Egg Salad
+857,Egg and bacon on biscuit
+858,Egg and cheese on biscuit
+859,Egg and ham on biscuit
+860,Egg and sausage on biscuit
+861,Egg and steak on biscuit
+862,Egg casserole with bread
+863,Egg drop soup
+864,Egg foo yung
+865,Egg omelet or scrambled egg
+866,Egg roll
+867,Egg salad
+868,Egg salad sandwich
+869,Egg substitute
+870,Egg white
+871,Egg white omelet
+872,Eggnog
+873,Eggplant
+874,Eggplant and meat casserole
+875,Eggplant dip
+876,Eggplant parmesan casserole
+877,Eggplant with cheese and tomato sauce
+878,Eggs a la Malaguena
+879,Empanada
+880,Enchilada
+881,Enchilada sauce
+882,Enchilada with beans
+883,Enchilada with chicken
+884,Enchilada with chicken and beans
+885,Enchilada with meat
+886,Enchilada with meat and beans
+887,Energy Drink
+888,Energy drink
+889,Energy drink (Full Throttle)
+890,Energy drink (Monster)
+891,Energy drink (Mountain Dew AMP)
+892,Energy drink (NOS)
+893,Energy drink (No Fear Motherload)
+894,Energy drink (No Fear)
+895,Energy drink (Ocean Spray Cran-Energy Juice Drink)
+896,Energy drink (Red Bull)
+897,Energy drink (Rockstar)
+898,Energy drink (SoBe Energize Energy Juice Drink)
+899,Energy drink (Vault)
+900,Energy drink (XS Gold Plus)
+901,Energy drink (XS)
+902,Escarole
+903,Espresso coffee beans
+904,Fajita with chicken and vegetables
+905,Fajita with meat and vegetables
+906,Fajita with vegetables
+907,Fajita-style beef sandwich with cheese
+908,Falafel
+909,Fat back
+910,Fava beans
+911,Fennel bulb
+912,Fig
+913,Finger Foods
+914,Firni
+915,Fish
+916,Fish and noodles with mushroom sauce
+917,Fish and rice with cream sauce
+918,Fish and rice with mushroom sauce
+919,Fish and rice with tomato-based sauce
+920,Fish and vegetable soup
+921,Fish and vegetables excluding  carrots
+922,Fish and vegetables excluding carrots
+923,Fish and vegetables including carrots
+924,Fish cake or patty
+925,Fish chowder
+926,Fish curry
+927,Fish curry with rice
+928,Fish fillet
+929,Fish in lemon-butter sauce with starch item
+930,Fish moochim
+931,Fish sandwich
+932,Fish sauce
+933,Fish shish kabob with vegetables
+934,Fish soup with potatoes
+935,Fish stick
+936,Fish stock
+937,Fish timbale or mousse
+938,Fish with cream or white sauce
+939,Fish with tomato-based sauce
+940,Fish wrap sandwich
+941,Flan
+942,Flavored pasta
+943,Flavored rice
+944,Flavored rice and pasta mixture
+945,Flavored rice mixture
+946,Flavored rice mixture with cheese
+947,Flax seeds
+948,Flaxseed oil
+949,Flounder
+950,Flounder with chopped broccoli
+951,Flounder with crab stuffing
+952,Flowers or blossoms of sesbania
+953,Fluid replacement
+954,Focaccia
+955,Fondant
+956,Frankfurter or hot dog
+957,Frankfurter or hot dog sandwich
+958,Frankfurters or hot dogs and sauerkraut
+959,Frankfurters or hot dogs with tomato-based sauce
+960,Freezer pop
+961,French or Catalina dressing
+962,French toast
+963,French toast sticks
+964,Fried bread
+965,Fried broccoli
+966,Fried cauliflower
+967,Fried chicken chunks
+968,Fried eggplant
+969,Fried fish with sauce
+970,Fried green beans
+971,Fried green tomatoes
+972,Fried mushrooms
+973,Fried okra
+974,Fried onion rings
+975,Fried pork chunks
+976,Fried rice
+977,Fried seafood sandwich
+978,Fried stuffed potatoes
+979,Fried summer squash
+980,Fritter
+981,Frog legs
+982,Frozen coffee drink
+983,Frozen daiquiri
+984,Frozen daiquiri mix
+985,Frozen dessert
+986,Frozen dinner
+987,Frozen fruit juice bar
+988,Frozen margarita
+989,Frozen mocha coffee drink
+990,Frozen yogurt
+991,Frozen yogurt bar
+992,Frozen yogurt cone
+993,Frozen yogurt sandwich
+994,Fruit
+995,Fruit Supreme dessert
+996,Fruit and vegetable smoothie
+997,Fruit bar
+998,Fruit butter
+999,Fruit cocktail
+1000,Fruit dessert
+1001,Fruit flavored drink
+1002,Fruit flavored snack
+1003,Fruit juice
+1004,Fruit juice and water drink
+1005,Fruit juice beverage
+1006,Fruit juice blend
+1007,Fruit juice drink
+1008,Fruit juice drink (Capri Sun)
+1009,Fruit juice drink (Sunny D)
+1010,Fruit leather and fruit snacks candy
+1011,Fruit mixture
+1012,Fruit nectar
+1013,Fruit peel
+1014,Fruit punch
+1015,Fruit salad
+1016,Fruit smoothie
+1017,Fruit smoothie juice drink
+1018,Fruit snacks candy
+1019,Fry sauce
+1020,Fudge
+1021,Fudgesicle
+1022,Fufu
+1023,Fun Fruits Creme Supremes
+1024,Funnel cake with sugar
+1025,Funnel cake with sugar and fruit
+1026,Fuzzy Navel
+1027,Garbanzo bean or chickpea soup
+1028,Garlic
+1029,Garlic bread
+1030,Garlic egg soup
+1031,Garlic sauce
+1032,Gazpacho
+1033,Gefilte fish
+1034,Gelatin dessert
+1035,Gelatin dessert with fruit
+1036,Gelatin salad with vegetables
+1037,Gelatin shot
+1038,Gelato
+1039,General Tso chicken
+1040,Gerber Finger Foods
+1041,Gerber Graduates Finger Snacks Cereal
+1042,Ghee
+1043,Gimlet
+1044,Gin
+1045,Gin Rickey
+1046,Gin and Tonic
+1047,Gin fizz
+1048,Ginger root
+1049,Gizzard
+1050,Glug
+1051,Gnocchi
+1052,Goat
+1053,Goat head
+1054,Goat ribs
+1055,Goat's milk
+1056,Golden Cadillac
+1057,Goose
+1058,Goose egg
+1059,Gordita
+1060,Gordita/sope shell
+1061,Goulash
+1062,Graham crackers
+1063,Graham crackers (Teddy Grahams)
+1064,Granola
+1065,Grape juice
+1066,Grape juice drink
+1067,Grape leaves stuffed with rice
+1068,Grapefruit
+1069,Grapefruit juice
+1070,Grapes
+1071,Grasshopper
+1072,Gravy
+1073,Greek Salad
+1074,Green banana
+1075,Green bean casserole
+1076,Green beans
+1077,Green beans and potatoes
+1078,Green peas
+1079,Green pepper
+1080,Green plantain with cracklings
+1081,Greens
+1082,Greens with ham or pork
+1083,Greyhound
+1084,Grilled cheese sandwich
+1085,Grits
+1086,Ground beef
+1087,Ground beef patty
+1088,Ground beef with tomato sauce and taco seasonings on a cornbread crust
+1089,Ground hog
+1090,Ground meat
+1091,Guacamole
+1092,Guacamole with tomatoes
+1093,Guava
+1094,Guava nectar
+1095,Guava paste
+1096,Gumbo
+1097,Gumbo with rice
+1098,Gumdrops
+1099,Gyro sandwich (pita bread
+1100,Haddock
+1101,Haddock cake or patty
+1102,Halibut
+1103,Halvah
+1104,Ham
+1105,Ham and cheese on English muffin
+1106,Ham and cheese sandwich
+1107,Ham and cheese submarine sandwich
+1108,Ham and noodles
+1109,Ham and noodles with cream or white sauce
+1110,Ham and pork
+1111,Ham and rice with mushroom sauce
+1112,Ham and vegetables excluding carrots
+1113,Ham and vegetables including carrots broccoli
+1114,Ham croquette
+1115,Ham luncheon meat
+1116,Ham on biscuit
+1117,Ham or pork
+1118,Ham or pork and potatoes with cheese sauce
+1119,Ham or pork and potatoes with gravy
+1120,Ham or pork and rice
+1121,Ham or pork salad
+1122,Ham or pork with barbecue sauce
+1123,Ham or pork with gravy
+1124,Ham or pork with mushroom sauce
+1125,Ham or pork with stuffing
+1126,Ham or pork with tomato-based sauce
+1127,Ham pot pie
+1128,Ham salad sandwich
+1129,Ham salad spread
+1130,Ham sandwich
+1131,Ham sandwich with lettuce and spread
+1132,Ham stroganoff
+1133,Hamburger
+1134,Hamburger (Burger King)
+1135,Hamburger (McDonalds)
+1136,Hamburger slider
+1137,Hamburger wrap sandwich
+1138,Hard candy
+1139,Hard cider
+1140,Hash
+1141,Haupia
+1142,Hayacas
+1143,Hazelnuts
+1144,Head cheese
+1145,Heart
+1146,Herring
+1147,High ball
+1148,Hog maws
+1149,Hoisin sauce
+1150,Hollandaise sauce
+1151,Hominy
+1152,Honey
+1153,Honey butter
+1154,Honey mustard dip
+1155,Honey mustard dressing
+1156,Honey-combed hard candy with peanut butter
+1157,Honeydew melon
+1158,Horchata beverage
+1159,Hors d'oeuvres
+1160,Horseradish
+1161,Horseradish sauce
+1162,Hot Thai sauce
+1163,Hot and sour soup
+1164,Hot chocolate / Cocoa
+1165,Hot ham and cheese sandwich
+1166,Hot pepper sauce
+1167,Hot peppers
+1168,Huevos rancheros
+1169,Hummus
+1170,Hunan beef
+1171,Hush puppy
+1172,Ice cream
+1173,Ice cream bar
+1174,Ice cream cake
+1175,Ice cream candy bar
+1176,Ice cream cone
+1177,Ice cream cookie sandwich
+1178,Ice cream sandwich
+1179,Ice cream soda
+1180,Ice cream sundae
+1181,Iced Coffee
+1182,Iced Tea / Lemonade juice drink
+1183,Icing
+1184,Imitation cheese
+1185,Industrial oil as ingredient in food
+1186,Infant formula
+1187,Injera
+1188,Instant soup
+1189,Irish Coffee
+1190,Italian Ice
+1191,Italian Wedding Soup
+1192,Italian dressing
+1193,Italian sausage
+1194,Jagerbomb
+1195,Jai
+1196,Jam
+1197,Jambalaya with meat and rice
+1198,Jelly
+1199,Jelly sandwich
+1200,Jicama
+1201,Johnnycake
+1202,Julienne salad
+1203,Kale
+1204,Kamikaze
+1205,Kefir
+1206,Ketchup
+1207,Kibby
+1208,Kidney
+1209,Kidney beans
+1210,Kidney beans and brown rice
+1211,Kidney beans and rice
+1212,Kidney beans and white rice
+1213,Kidney beans with meat
+1214,Kimchi
+1215,Kishke
+1216,Kit Kat
+1217,Kit Kat White
+1218,Kiwi fruit
+1219,Knish
+1220,Knockwurst
+1221,Kohlrabi
+1222,Korean dressing or marinade
+1223,Kumquat
+1224,Kung Pao beef
+1225,Kung Pao pork
+1226,Kung Pao shrimp
+1227,Kung pao chicken
+1228,Ladoo
+1229,Lamb
+1230,Lamb chop
+1231,Lamb hocks
+1232,Lamb or mutton
+1233,Lamb or mutton and noodles with gravy
+1234,Lamb or mutton and potatoes with gravy
+1235,Lamb or mutton and potatoes with tomato-based sauce
+1236,Lamb or mutton goulash
+1237,Lamb or mutton loaf
+1238,Lamb or mutton stew with potatoes and vegetables excluding carrots
+1239,Lamb or mutton stew with potatoes and vegetables including carrots
+1240,Lamb or mutton stew with vegetables excluding carrots
+1241,Lamb or mutton stew with vegetables including carrots
+1242,Lamb or mutton with gravy
+1243,Lamb shish kabob with vegetables
+1244,Lambsquarter
+1245,Lard
+1246,Lasagna
+1247,Lasagna with cheese and meat sauce
+1248,Lasagna with chicken or turkey
+1249,Lasagna with meat
+1250,Lasagna with meat and spinach
+1251,Lau lau
+1252,Layer dip
+1253,Leek
+1254,Leek soup
+1255,Lefse (Norwegian)
+1256,Lemon
+1257,Lemon juice
+1258,Lemon pie filling
+1259,Lemon-butter sauce
+1260,Lemonade
+1261,Lentil curry
+1262,Lentil curry with rice
+1263,Lentil soup
+1264,Lentils
+1265,Lettuce
+1266,Licorice
+1267,Licuado or Batido
+1268,Light ice cream
+1269,Light ice cream bar
+1270,Light ice cream cone
+1271,Light ice cream sandwich
+1272,Lima bean soup
+1273,Lima beans
+1274,Lima beans and corn
+1275,Lime
+1276,Lime juice
+1277,Lime souffle
+1278,Linguini with vegetables and seafood in white wine sauce
+1279,Liqueur with cream
+1280,Liquid from stewed kidney beans
+1281,Liver
+1282,Liver dumpling
+1283,Liver paste or pate
+1284,Livers
+1285,Liverwurst
+1286,Lo mein
+1287,Lobster
+1288,Lobster bisque
+1289,Lobster gumbo
+1290,Lobster newburg
+1291,Lobster salad
+1292,Lobster with bread stuffing
+1293,Lobster with butter sauce
+1294,Lobster with sauce
+1295,Lomi salmon
+1296,Long Island iced tea
+1297,Long rice noodles
+1298,Lotus root
+1299,Luffa
+1300,Luncheon meat
+1301,Luncheon meat sandwich
+1302,Luncheon slice
+1303,Lychee
+1304,M&M's Almond Chocolate Candies
+1305,M&M's Milk Chocolate Candies
+1306,M&M's Peanut Butter Chocolate Candies
+1307,M&M's Peanut Chocolate Candies
+1308,M&M's Pretzel Chocolate Candies
+1309,MARS Almond Bar
+1310,MILKY WAY Bar
+1311,MILKY WAY MIDNIGHT Bar
+1312,Macadamia nuts
+1313,Macaroni
+1314,Macaroni and cheese
+1315,Macaroni or noodles
+1316,Macaroni or noodles with cheese
+1317,Macaroni or noodles with cheese and chicken or turkey
+1318,Macaroni or noodles with cheese and egg
+1319,Macaroni or noodles with cheese and frankfurters or hot dogs
+1320,Macaroni or noodles with cheese and meat
+1321,Macaroni or noodles with cheese and tomato
+1322,Macaroni or noodles with cheese and tuna
+1323,Macaroni or pasta salad
+1324,Macaroni or pasta salad with cheese
+1325,Macaroni or pasta salad with chicken
+1326,Macaroni or pasta salad with crab meat
+1327,Macaroni or pasta salad with egg
+1328,Macaroni or pasta salad with meat
+1329,Macaroni or pasta salad with shrimp
+1330,Macaroni or pasta salad with tuna
+1331,Macaroni or pasta salad with tuna and egg
+1332,Macaroni with beef and tomato sauce
+1333,Macaroni with tuna
+1334,Macaroni with vegetables
+1335,Mackerel
+1336,Mackerel cake or patty
+1337,Mai Tai
+1338,Mango
+1339,Mango dessert
+1340,Mango nectar
+1341,Manhattan
+1342,Manicotti
+1343,Margarine
+1344,Margarine-oil blend
+1345,Margarita
+1346,Margarita mix
+1347,Marie biscuit
+1348,Marmalade
+1349,Marshmallow
+1350,Martini
+1351,Masa harina
+1352,Matzo ball soup
+1353,Mayonnaise
+1354,Mayonnaise-type salad dressing
+1355,McDouble (McDonalds)
+1356,Meat
+1357,Meat and corn hominy soup
+1358,Meat broth
+1359,Meat loaf
+1360,Meat loaf dinner
+1361,Meat loaf made with beef
+1362,Meat loaf made with beef and pork
+1363,Meat loaf made with chicken or turkey
+1364,Meat loaf made with ham
+1365,Meat loaf made with venison/deer
+1366,Meat loaf with potatoes
+1367,Meat pie
+1368,Meat sandwich
+1369,Meat spread or potted meat
+1370,Meat spread or potted meat sandwich
+1371,Meat stick
+1372,Meat sticks
+1373,Meat substitute
+1374,Meat turnover
+1375,Meat with barbecue sauce
+1376,Meat with gravy
+1377,Meat with tomato-based sauce
+1378,Meatball
+1379,Meatball and spaghetti sauce submarine sandwich
+1380,Meatball soup
+1381,Meatballs
+1382,Melba toast
+1383,Menudo soup
+1384,Meringues
+1385,Mexican casserole made with ground beef
+1386,Mexican chocolate
+1387,Mexican style chicken broth soup stock
+1388,Midnight sandwich
+1389,Milk
+1390,Milk 'n Cereal bar
+1391,Milk chocolate candy
+1392,Milk dessert or milk candy
+1393,Milk shake
+1394,Milk shake with malt
+1395,Millet
+1396,Mimosa
+1397,Minestrone soup
+1398,Mint julep
+1399,Miso
+1400,Miso sauce
+1401,Mixed cereal
+1402,Mixed cereal with applesauce and bananas
+1403,Mixed cereal with bananas
+1404,Mixed fruit juice
+1405,Mixed fruit juice with lowfat yogurt
+1406,Mixed fruit tart filled with custard or cream cheese
+1407,Mixed fruit yogurt dessert
+1408,Mixed nuts
+1409,Mixed salad greens
+1410,Mixed seeds
+1411,Mixed vegetable juice
+1412,Mixed vegetables
+1413,Mock chicken legs
+1414,Mojito
+1415,Molasses
+1416,Mole sauce
+1417,Moo Goo Gai Pan
+1418,Moo Shu pork
+1419,Moose
+1420,Mortadella
+1421,Mousse
+1422,Mozzarella cheese
+1423,Mozzarella sticks
+1424,Muffin
+1425,Mullet
+1426,Multigrain
+1427,Multigrain chips (Sun Chips)
+1428,Mung beans
+1429,Mushroom
+1430,Mushroom soup
+1431,Mushroom with chicken soup
+1432,Mushrooms
+1433,Mussels
+1434,Mussels with tomato-based sauce
+1435,Mustard
+1436,Mustard cabbage
+1437,Mustard greens
+1438,Naan
+1439,Nachos with cheese
+1440,Nachos with cheese and sour cream
+1441,Nachos with chicken
+1442,Nachos with chicken and cheese
+1443,Nachos with chili
+1444,Nachos with meat
+1445,Nachos with meat and cheese
+1446,Natto
+1447,Nectarine
+1448,Non-dairy milk
+1449,Nonalcoholic malt beverage
+1450,Noodle and potato soup
+1451,Noodle pudding
+1452,Noodle soup
+1453,Noodle soup with vegetables
+1454,Noodles
+1455,Noodles with vegetables in tomato-based sauce
+1456,Nougat
+1457,Nut roll
+1458,Nutrition bar (Balance Original Bar)
+1459,Nutrition bar (Clif Bar)
+1460,Nutrition bar (Clif Kids Organic Zbar)
+1461,Nutrition bar (PowerBar)
+1462,Nutrition bar (Slim Fast Original Meal Bar)
+1463,Nutrition bar (Snickers Marathon Protein Bar)
+1464,Nutrition bar (South Beach Living High Protein Bar)
+1465,Nutrition bar (South Beach Living Meal Bar)
+1466,Nutrition bar (Tiger's Milk)
+1467,Nutrition bar (Zone Perfect Classic Crunch)
+1468,Nutrition bar or meal replacement bar
+1469,Nutritional drink or shake
+1470,Nutritional powder mix
+1471,Nutritional powder mix (Carnation Instant Breakfast)
+1472,Nutritional powder mix (EAS Soy Protein Powder)
+1473,Nutritional powder mix (EAS Whey Protein Powder)
+1474,Nutritional powder mix (Isopure)
+1475,Nutritional powder mix (Kellogg's Special K20 Protein Water)
+1476,Nutritional powder mix (Muscle Milk)
+1477,Nutritional powder mix (Slim Fast)
+1478,Nuts
+1479,Oat bran
+1480,Oat bran cereal
+1481,Oatmeal
+1482,Oatmeal beverage with milk
+1483,Oatmeal beverage with water
+1484,Oatmeal cereal
+1485,Oatmeal cereal with bananas
+1486,Oatmeal cereal with fruit
+1487,Oatmeal with applesauce and bananas
+1488,Oats
+1489,Ocean perch
+1490,Octopus
+1491,Octopus salad
+1492,Oil or table fat
+1493,Okra
+1494,Old fashioned
+1495,Olive oil
+1496,Olive tapenade
+1497,Olives
+1498,Onion dip
+1499,Onion flavored rings
+1500,Onion soup
+1501,Onions
+1502,Opossum
+1503,Orange
+1504,Orange Blossom
+1505,Orange chicken
+1506,Orange juice
+1507,Orange juice beverage
+1508,Orange-apple-banana juice
+1509,Orange-carrot juice
+1510,Ostrich
+1511,Other vegetables as ingredient in omelet
+1512,Oxtail soup
+1513,Oyster fritter
+1514,Oyster pie
+1515,Oyster sauce
+1516,Oyster stew
+1517,Oysters
+1518,Oysters Rockefeller
+1519,Pad Thai
+1520,Pad Thai with chicken
+1521,Pad Thai with meat
+1522,Pad Thai with seafood
+1523,Paella
+1524,Paella with meat
+1525,Paella with seafood
+1526,Pakora
+1527,Palak Paneer
+1528,Palm hearts
+1529,Pan Dulce
+1530,Pancake syrup
+1531,Pancakes
+1532,Pancakes and sausage
+1533,Pannetone
+1534,Papad
+1535,Papaya
+1536,Papaya juice
+1537,Papaya nectar
+1538,Parsley
+1539,Parsnips
+1540,Passion fruit
+1541,Passion fruit juice
+1542,Passion fruit nectar
+1543,Pasta
+1544,Pasta with cream sauce
+1545,Pasta with cream sauce and added vegetables
+1546,Pasta with cream sauce and meat
+1547,Pasta with cream sauce and poultry
+1548,Pasta with cream sauce and seafood
+1549,Pasta with sauce
+1550,Pasta with sauce and meat
+1551,Pasta with tomato-based sauce
+1552,Pasta with tomato-based sauce and beans or lentils
+1553,Pasta with tomato-based sauce and cheese
+1554,Pasta with tomato-based sauce and meat
+1555,Pasta with tomato-based sauce and poultry
+1556,Pasta with tomato-based sauce and seafood
+1557,Pasta with vegetable and cheese sauce
+1558,Pasta with vegetables
+1559,Pastrami
+1560,Pastrami sandwich
+1561,Pastry
+1562,Pea and ham soup
+1563,Pea salad
+1564,Pea salad with cheese
+1565,Pea soup
+1566,Peach
+1567,Peach cobbler
+1568,Peach nectar
+1569,Peach yogurt dessert
+1570,Peaches
+1571,Peanut Bar
+1572,Peanut bar
+1573,Peanut brittle
+1574,Peanut butter
+1575,Peanut butter and chocolate spread
+1576,Peanut butter and jelly
+1577,Peanut butter and jelly sandwich
+1578,Peanut butter morsels
+1579,Peanut butter sandwich
+1580,Peanut oil
+1581,Peanut sauce
+1582,Peanuts
+1583,Pear
+1584,Pear juice
+1585,Pear nectar
+1586,Pears
+1587,Pears and pineapple
+1588,Peas
+1589,Peas and brown rice
+1590,Peas and carrots
+1591,Peas and corn
+1592,Pecans
+1593,Pepper
+1594,Pepper steak
+1595,Pepperoni
+1596,Pepperoni and salami submarine sandwich
+1597,Pepperpot soup
+1598,Peppers
+1599,Peppers and onions
+1600,Perch
+1601,Persimmon
+1602,Peruvian beans
+1603,Pesto sauce
+1604,Pheasant
+1605,Pho
+1606,Pickled sausage
+1607,Pickles
+1608,Pie
+1609,Pie shell
+1610,Pig in a blanket
+1611,Pike
+1612,Pimiento
+1613,Pina Colada
+1614,Pine nuts
+1615,Pineapple
+1616,Pineapple candy
+1617,Pineapple dessert
+1618,Pineapple juice
+1619,Pineapple salad with dressing
+1620,Pink beans
+1621,Pinto bean soup
+1622,Pinto beans
+1623,Pinto beans and brown rice
+1624,Pinto beans and rice
+1625,Pinto beans and white rice
+1626,Pinto beans with meat
+1627,Pistachio nuts
+1628,Pita chips
+1629,Pizza
+1630,Pizza rolls
+1631,Pizza with beans and vegetables
+1632,Pizza with cheese and extra vegetables
+1633,Pizza with extra meat
+1634,Pizza with extra meat and extra vegetables
+1635,Pizza with meat and fruit
+1636,Pizza with meat and vegetables
+1637,Pizza with meat other than pepperoni
+1638,Pizza with pepperoni
+1639,Plantain
+1640,Plantain chips
+1641,Plantain soup
+1642,Planters Peanut Bar
+1643,Plum
+1644,Plums
+1645,Pocky
+1646,Poi
+1647,Poke greens
+1648,Polish sausage
+1649,Pomegranate
+1650,Pomegranate juice
+1651,Pomegranate juice beverage
+1652,Pompano
+1653,Popcorn
+1654,Popcorn cake
+1655,Popcorn chips
+1656,Popover
+1657,Poppy seed dressing
+1658,Popsicle
+1659,Porcupine balls with mushroom sauce
+1660,Porcupine balls with tomato-based sauce
+1661,Porgy
+1662,Pork
+1663,Pork and beans
+1664,Pork and beef sausage
+1665,Pork and onions with soy-based sauce
+1666,Pork and rice with tomato-based sauce
+1667,Pork and vegetables
+1668,Pork and vegetables excluding  carrots
+1669,Pork and vegetables excluding carrots
+1670,Pork and vegetables including carrots
+1671,Pork and watercress with soy-based sauce
+1672,Pork bacon
+1673,Pork barbecue sandwich or Sloppy Joe
+1674,Pork chop
+1675,Pork chop stewed with vegetables
+1676,Pork chow mein or chop suey
+1677,Pork chow mein or chop suey with noodles
+1678,Pork ears
+1679,Pork egg foo yung
+1680,Pork hash
+1681,Pork jerky
+1682,Pork or ham with soy-based sauce
+1683,Pork roast
+1684,Pork roll
+1685,Pork sandwich
+1686,Pork sausage
+1687,Pork sausage rice links
+1688,Pork shish kabob with vegetables
+1689,Pork skin
+1690,Pork skin rinds
+1691,Pork steak or cutlet
+1692,Pork stew
+1693,Pork vegetable soup with potato
+1694,Pork with chili and tomatoes
+1695,Pork with vegetable excluding carrots
+1696,Potato
+1697,Potato and cheese soup
+1698,Potato and ham fritters
+1699,Potato chicken pie
+1700,Potato chips
+1701,Potato chowder
+1702,Potato from Puerto Rican beef stew
+1703,Potato from Puerto Rican chicken fricassee
+1704,Potato from Puerto Rican style stuffed pot roast
+1705,Potato only from Puerto Rican mixed dishes
+1706,Potato pancake
+1707,Potato patty
+1708,Potato salad
+1709,Potato salad with egg
+1710,Potato skins
+1711,Potato skins without topping
+1712,Potato soup
+1713,Potato sticks
+1714,Potato tots
+1715,Potatoes
+1716,Potatoes with cheese and broccoli
+1717,Pralines
+1718,Pretzel
+1719,Pretzel chips
+1720,Pretzels
+1721,Prune
+1722,Prune juice
+1723,Prunes
+1724,Prunes with oatmeal
+1725,Pudding
+1726,Puerto Rican pasteles
+1727,Puerto Rican sandwich
+1728,Puerto Rican seasoning with ham
+1729,Puerto Rican seasoning with ham and tomato sauce
+1730,Puerto Rican seasoning without ham and tomato sauce
+1731,Puerto Rican stew
+1732,Puerto Rican white cheese
+1733,Puffs
+1734,Pumpkin
+1735,Pumpkin seeds
+1736,Pupusa
+1737,Quail
+1738,Quail egg
+1739,Quarter Pounder (McDonalds)
+1740,Quarter Pounder with cheese (McDonalds)
+1741,Quesadilla
+1742,Quesadilla with chicken
+1743,Quesadilla with meat
+1744,Quesadilla with vegetables
+1745,Quesadilla with vegetables and chicken
+1746,Quesadilla with vegetables and meat
+1747,Queso Anejo
+1748,Queso Asadero
+1749,Queso Fresco
+1750,Queso cotija
+1751,Quiche with meat
+1752,Quinoa
+1753,Rabbit
+1754,Rabbit stew with potatoes and vegetables
+1755,Raccoon
+1756,Radicchio
+1757,Radish
+1758,Radishes
+1759,Raisins
+1760,Ranch dip
+1761,Raspberries
+1762,Ratatouille
+1763,Ravioli
+1764,Raw vegetable
+1765,Ray
+1766,Red pepper
+1767,Reese's Crispy Crunchy Bar
+1768,Reese's Fast Break
+1769,Reese's Peanut Butter Cup
+1770,Reese's Pieces
+1771,Reese's Sticks
+1772,Refried beans
+1773,Refried beans with meat
+1774,Relish
+1775,Reuben sandwich
+1776,Rhubarb
+1777,Rice
+1778,Rice and potato soup
+1779,Rice cake
+1780,Rice cereal
+1781,Rice cereal with apples
+1782,Rice cereal with applesauce and bananas
+1783,Rice cereal with bananas
+1784,Rice cereal with mixed fruit
+1785,Rice cereal with mixed fruits
+1786,Rice croquette
+1787,Rice dessert or salad with fruit
+1788,Rice dressing
+1789,Rice meal fritter
+1790,Rice milk
+1791,Rice noodles
+1792,Rice paper
+1793,Rice pilaf
+1794,Rice soup
+1795,Rice with Spanish sausage
+1796,Rice with chicken
+1797,Rice with onions
+1798,Rice with raisins
+1799,Rice with squid
+1800,Rice with stewed beans
+1801,Rice with vienna sausage
+1802,Ripe plantain
+1803,Ripe plantain fritters
+1804,Ripe plantain meat pie
+1805,Ripe plantain omelet
+1806,Roast beef sandwich
+1807,Roast beef sandwich with bacon and cheese sauce
+1808,Roast beef sandwich with cheese
+1809,Roast beef submarine sandwich
+1810,Rob Roy
+1811,Roe
+1812,Roll
+1813,Roll with meat and/or shrimp
+1814,Rolo
+1815,Romaine lettuce
+1816,Rum
+1817,Rum and cola
+1818,Rum and diet cola
+1819,Rum cake
+1820,Rum cooler
+1821,Russian dressing
+1822,Rusty Nail
+1823,Rutabaga
+1824,SNICKERS Bar
+1825,Safflower oil
+1826,Salad dressing
+1827,Salami
+1828,Salami sandwich
+1829,Salisbury steak
+1830,Salisbury steak dinner
+1831,Salisbury steak with gravy
+1832,Salmon
+1833,Salmon cake or patty
+1834,Salmon cake sandwich
+1835,Salmon loaf
+1836,Salmon salad
+1837,Salmon soup
+1838,Salsa
+1839,Salsa verde or salsa
+1840,Salsify
+1841,Salt pork
+1842,Salty Dog
+1843,Sambar
+1844,Sandwich
+1845,Sandwich spread
+1846,Sangria
+1847,Sardine sandwich
+1848,Sardines
+1849,Sardines with mustard sauce
+1850,Sardines with tomato-based sauce
+1851,Sauce as ingredient in hamburgers
+1852,Sauerkraut
+1853,Sausage
+1854,Sausage and cheese on English muffin
+1855,Sausage and french toast
+1856,Sausage and noodles with cream or white sauce
+1857,Sausage and peppers
+1858,Sausage and rice with cheese sauce
+1859,Sausage and rice with mushroom sauce
+1860,Sausage and rice with tomato-based sauce
+1861,Sausage and spaghetti sauce sandwich
+1862,Sausage and vegetables
+1863,Sausage and vegetables including  carrots
+1864,Sausage balls
+1865,Sausage gravy
+1866,Sausage griddle cake sandwich
+1867,Sausage on biscuit
+1868,Sausage sandwich
+1869,Sausage with tomato-based sauce
+1870,Scallops
+1871,Scallops and noodles with cheese sauce
+1872,Scallops with cheese sauce
+1873,Scone
+1874,Scotch
+1875,Scrambled egg sandwich
+1876,Scrambled eggs with jerked beef
+1877,Scrapple
+1878,Screwdriver
+1879,Sea bass
+1880,Seabreeze
+1881,Seafood dip
+1882,Seafood garden salad with seafood
+1883,Seafood newburg
+1884,Seafood paella
+1885,Seafood restructured
+1886,Seafood salad
+1887,Seafood salad sandwich
+1888,Seafood sauce
+1889,Seafood souffle
+1890,Seafood soup with potatoes
+1891,Seafood soup with potatoes and vegetables including carrots
+1892,Seafood soup with vegetables excluding carrots
+1893,Seafood soup with vegetables including carrots
+1894,Seafood stew with potatoes and vegetables excluding carrots
+1895,Seafood stew with potatoes and vegetables including carrots
+1896,Seasoned shredded soup meat
+1897,Seaweed
+1898,Seaweed soup
+1899,Sesame Crunch
+1900,Sesame chicken
+1901,Sesame dressing
+1902,Sesame oil
+1903,Sesame seeds
+1904,Seven and Seven
+1905,Seven-layer salad
+1906,Shark
+1907,Shav soup
+1908,Shellfish and noodles with tomato-based sauce
+1909,Shellfish mixture and vegetables excluding carrots
+1910,Shellfish mixture and vegetables including carrots
+1911,Shepherd's pie with beef
+1912,Shepherd's pie with lamb
+1913,Sherbet
+1914,Shirley Temple
+1915,Shortening
+1916,Shrimp
+1917,Shrimp and clams in tomato-based sauce
+1918,Shrimp and noodles
+1919,Shrimp and noodles with cheese sauce
+1920,Shrimp and noodles with cream or white sauce
+1921,Shrimp and noodles with gravy
+1922,Shrimp and noodles with mushroom sauce
+1923,Shrimp and noodles with soy-based sauce
+1924,Shrimp and noodles with tomato sauce
+1925,Shrimp and vegetables excluding carrots
+1926,Shrimp and vegetables in sauce with noodles
+1927,Shrimp and vegetables including carrots
+1928,Shrimp cake or patty
+1929,Shrimp chips
+1930,Shrimp chow mein or chop suey
+1931,Shrimp chow mein or chop suey with noodles
+1932,Shrimp cocktail
+1933,Shrimp creole
+1934,Shrimp egg foo yung
+1935,Shrimp garden salad
+1936,Shrimp gumbo
+1937,Shrimp in garlic sauce
+1938,Shrimp salad
+1939,Shrimp scampi
+1940,Shrimp shish kabob with vegetables
+1941,Shrimp soup
+1942,Shrimp teriyaki
+1943,Shrimp toast
+1944,Shrimp with crab stuffing
+1945,Shrimp with lobster sauce
+1946,Shrimp-egg patty
+1947,Simple syrup
+1948,Singapore Sling
+1949,Sirloin
+1950,Sirloin beef
+1951,Sirloin tips
+1952,Sixlets
+1953,Skittles
+1954,Sliced chicken sandwich
+1955,Sloe gin fizz
+1956,Slush frozen drink
+1957,Snack bar
+1958,Snack cake
+1959,Snack mix
+1960,Snails
+1961,Snow cone
+1962,Snowpea
+1963,Snowpeas
+1964,Soft drink
+1965,Soft fruit confections
+1966,Soft serve
+1967,Soft taco with beans
+1968,Soft taco with beans and sour cream
+1969,Soft taco with chicken
+1970,Soft taco with chicken and beans
+1971,Soft taco with chicken and sour cream
+1972,Soft taco with fish
+1973,Soft taco with meat
+1974,Soft taco with meat and beans
+1975,Soft taco with meat and sour cream
+1976,Sopa Seca de Fideo
+1977,Sopa de Fideo Aguada
+1978,Sopa de tortilla
+1979,Sopa seca
+1980,Sopa seca de arroz
+1981,Sopaipilla
+1982,Sopaipilla with syrup or honey
+1983,Sorbet
+1984,Soup
+1985,Soupy rice mixture with chicken and potatoes
+1986,Soupy rice with chicken
+1987,Sour cream
+1988,Soursop
+1989,Soy based sauce
+1990,Soy chips
+1991,Soy milk
+1992,Soy nut butter
+1993,Soy nuts
+1994,Soy sauce
+1995,Soybean curd
+1996,Soybean curd cheese
+1997,Soybean oil
+1998,Soybean soup
+1999,Soybeans
+2000,Soyburger
+2001,Spaghetti
+2002,Spaghetti and meatballs dinner
+2003,Spaghetti sauce
+2004,Spaghetti sauce with added vegetables
+2005,Spaghetti sauce with meat
+2006,Spaghetti sauce with meat and added vegetables
+2007,Spaghetti sauce with poultry
+2008,Spaghetti sauce with poultry and added vegetables
+2009,Spaghetti sauce with seafood
+2010,Spaghetti sauce with seafood and added vegetables
+2011,Spaghetti squash
+2012,Spaghetti with corned beef
+2013,Spaghetti with meat and mushroom sauce
+2014,Spaghetti with meat sauce
+2015,Spanakopitta
+2016,Spanish rice
+2017,Spanish rice with ground beef
+2018,Spanish stew
+2019,Spanish vegetable soup
+2020,Spinach
+2021,Spinach and artichoke dip
+2022,Spinach and cheese casserole
+2023,Spinach dip
+2024,Spinach quiche
+2025,Spinach salad
+2026,Spinach souffle
+2027,Spinach soup
+2028,Split pea and ham soup
+2029,Split pea soup
+2030,Split peas
+2031,Spoonbread
+2032,Sports drink
+2033,Sports drink (Gatorade G)
+2034,Sports drink (Powerade)
+2035,Sprouts
+2036,Squash
+2037,Squash and corn
+2038,Squash fritter or cake
+2039,Squid
+2040,Squirrel
+2041,Starfruit
+2042,Steak
+2043,Steak and cheese sandwich
+2044,Steak and cheese submarine sandwich
+2045,Steak sandwich
+2046,Steak sauce
+2047,Steak submarine sandwich with lettuce and tomato
+2048,Steak tartare
+2049,Steak teriyaki
+2050,Stew
+2051,Stewed
+2052,Stewed chicken with tomato-based sauce
+2053,Stewed chitterlings
+2054,Stewed codfish
+2055,Stewed corned beef
+2056,Stewed dried beef
+2057,Stewed gizzards
+2058,Stewed goat
+2059,Stewed pig's feet
+2060,Stewed pork
+2061,Stewed potatoes
+2062,Stewed potatoes with tomatoes
+2063,Stewed rabbit
+2064,Stewed rice
+2065,Stewed salmon
+2066,Stewed seasoned ground beef
+2067,Stewed tripe
+2068,Stewed variety meats
+2069,Stinger
+2070,Stir fried beef and vegetables in soy sauce
+2071,Strawberries
+2072,Strawberry beverage powder
+2073,Strawberry drink syrup
+2074,Strawberry juice
+2075,Strawberry milk
+2076,Strudel
+2077,Stuffed cabbage
+2078,Stuffed cabbage rolls with beef and rice
+2079,Stuffed chicken
+2080,Stuffed christophine
+2081,Stuffed grape leaves with beef and rice
+2082,Stuffed grape leaves with lamb and rice
+2083,Stuffed green pepper
+2084,Stuffed jalapeno pepper
+2085,Stuffed pepper
+2086,Stuffed pork roast
+2087,Stuffed pot roast
+2088,Stuffed shells
+2089,Stuffed tannier fritters
+2090,Stuffed tomato
+2091,Sturgeon
+2092,Sugar
+2093,Sugar cane beverage
+2094,Sugar substitute
+2095,Sugar substitute and sugar blend
+2096,Sugar-coated chocolate discs
+2097,Sugared pecans
+2098,Summer squash
+2099,Sun-dried tomatoes
+2100,Sunflower oil
+2101,Sunflower seeds
+2102,Sushi
+2103,Sushi roll
+2104,Sushi roll tuna
+2105,Swedish meatballs with cream or white sauce
+2106,Sweet and sour chicken or turkey
+2107,Sweet and sour pork
+2108,Sweet and sour pork with rice
+2109,Sweet and sour sauce
+2110,Sweet and sour shrimp
+2111,Sweet and sour soup
+2112,Sweet bread dough
+2113,Sweet potato
+2114,Sweet potato and pumpkin casserole
+2115,Sweet potato chips
+2116,Sweet potato fries
+2117,Sweet potato paste
+2118,Sweet potato tots
+2119,Sweet potatoes
+2120,Sweet potatoes and chicken
+2121,Sweetbreads
+2122,Swiss steak
+2123,Swordfish
+2124,Syrup
+2125,Szechuan beef
+2126,TWIX Caramel Cookie Bars
+2127,TWIX Chocolate Fudge Cookie Bars
+2128,TWIX Peanut Butter Cookie Bars
+2129,Tabbouleh
+2130,Table fat
+2131,Taco or tostada salad
+2132,Taco or tostada salad with chicken
+2133,Taco or tostada salad with chicken and sour cream
+2134,Taco or tostada salad with meat
+2135,Taco or tostada salad with meat and sour cream
+2136,Taco or tostada with beans
+2137,Taco or tostada with beans and sour cream
+2138,Taco or tostada with chicken
+2139,Taco or tostada with chicken and beans
+2140,Taco or tostada with chicken and sour cream
+2141,Taco or tostada with fish
+2142,Taco or tostada with meat
+2143,Taco or tostada with meat and beans
+2144,Taco or tostada with meat and sour cream
+2145,Taco sauce
+2146,Taco shell
+2147,Taco with crab meat
+2148,Taffy
+2149,Tahini
+2150,Tamal in a leaf
+2151,Tamale
+2152,Tamale casserole
+2153,Tamale casserole with meat
+2154,Tamale with chicken
+2155,Tamale with meat
+2156,Tamarind
+2157,Tamarind candy
+2158,Tamarind drink
+2159,Tangerine
+2160,Tangerine juice
+2161,Tannier
+2162,Taquito or flauta with cheese
+2163,Taquito or flauta with chicken
+2164,Taquito or flauta with chicken and cheese
+2165,Taquito or flauta with egg
+2166,Taquito or flauta with egg and breakfast meat
+2167,Taquito or flauta with meat
+2168,Taquito or flauta with meat and cheese
+2169,Taro
+2170,Taro chips
+2171,Taro leaves
+2172,Tartar sauce
+2173,Tea
+2174,Tequila
+2175,Tequila Sunrise
+2176,Teriyaki chicken with rice and vegetable
+2177,Teriyaki sauce
+2178,Textured vegetable protein
+2179,Thistle leaves
+2180,Thousand Island dressing
+2181,Thuringer
+2182,Tilapia
+2183,Tiramisu
+2184,Toblerone
+2185,Toffee
+2186,Tofu and vegetables excluding carrots
+2187,Tofu and vegetables including carrots
+2188,Tom Collins
+2189,Tomato
+2190,Tomato and cucumber salad made with tomato
+2191,Tomato and vegetable juice
+2192,Tomato aspic
+2193,Tomato beef noodle soup
+2194,Tomato beef rice soup
+2195,Tomato beef soup
+2196,Tomato chili sauce
+2197,Tomato juice
+2198,Tomato juice cocktail
+2199,Tomato noodle soup
+2200,Tomato rice soup
+2201,Tomato sandwich
+2202,Tomato sauce
+2203,Tomato soup
+2204,Tomato vegetable soup
+2205,Tomato vegetable soup with noodles
+2206,Tomatoes
+2207,Tomatoes as ingredient in omelet
+2208,Tongue
+2209,Tongue pot roast
+2210,Topping
+2211,Topping from cheese pizza
+2212,Topping from meat and vegetable pizza
+2213,Topping from meat pizza
+2214,Topping from vegetable pizza
+2215,Tortellini
+2216,Tortilla
+2217,Tortilla chips
+2218,Trail mix
+2219,Trail mix with chocolate
+2220,Trail mix with nuts
+2221,Trail mix with nuts and fruit
+2222,Trail mix with pretzels
+2223,Trifle
+2224,Tripe
+2225,Tropical fruit medley
+2226,Trout
+2227,Truffles
+2228,Tuna
+2229,Tuna and rice with mushroom sauce
+2230,Tuna cake or patty
+2231,Tuna casserole with vegetables and mushroom sauce
+2232,Tuna loaf
+2233,Tuna noodle casserole with cream or white sauce
+2234,Tuna noodle casserole with mushroom sauce
+2235,Tuna noodle casserole with vegetables
+2236,Tuna noodle casserole with vegetables and mushroom sauce
+2237,Tuna pot pie
+2238,Tuna salad
+2239,Tuna salad sandwich
+2240,Tuna salad with cheese
+2241,Tuna salad with egg
+2242,Tuna salad wrap sandwich
+2243,Tuna with cream or white sauce
+2244,Turkey
+2245,Turkey and bacon submarine sandwich
+2246,Turkey bacon
+2247,Turkey dinner
+2248,Turkey ham
+2249,Turkey light or dark meat
+2250,Turkey or chicken
+2251,Turkey or chicken and beef sausage
+2252,Turkey or chicken and pork sausage
+2253,Turkey or chicken burger
+2254,Turkey or chicken sausage
+2255,Turkey salad or turkey spread sandwich
+2256,Turkey sandwich
+2257,Turkey stick
+2258,Turkey submarine sandwich
+2259,Turkey with barbecue sauce
+2260,Turkey with gravy
+2261,Turkey with vegetable
+2262,Turnip
+2263,Turnip greens
+2264,Turnover
+2265,Turnover filled with ground beef and cabbage
+2266,Turnover filled with meat and vegetable
+2267,Turnover or dumpling
+2268,Turrnip greens
+2269,Turtle
+2270,Turtle and vegetable soup
+2271,Tutti-fruitti pudding
+2272,Tzatziki dip
+2273,Upma
+2274,Vada
+2275,Vanilla wafer dessert base
+2276,Veal
+2277,Veal Marsala
+2278,Veal and noodles with cream or white sauce
+2279,Veal chop
+2280,Veal cordon bleu
+2281,Veal cutlet or steak
+2282,Veal fricassee
+2283,Veal goulash with vegetables excluding carrots
+2284,Veal goulash with vegetables including carrots
+2285,Veal parmigiana
+2286,Veal patty
+2287,Veal scallopini
+2288,Veal stew with potatoes and vegetables excluding carrots
+2289,Veal stew with potatoes and vegetables including carrots
+2290,Veal with butter sauce
+2291,Veal with cream sauce
+2292,Veal with gravy
+2293,Veal with vegetables excluding carrots
+2294,Veal with vegetables including carrots
+2295,Vegan mayonnaise
+2296,Vegetable and beef
+2297,Vegetable and chicken
+2298,Vegetable and fruit juice
+2299,Vegetable and fruit juice drink
+2300,Vegetable and turkey
+2301,Vegetable beef noodle soup
+2302,Vegetable beef soup
+2303,Vegetable beef soup with noodles or pasta
+2304,Vegetable beef soup with rice
+2305,Vegetable broth
+2306,Vegetable chicken rice soup
+2307,Vegetable chips
+2308,Vegetable curry
+2309,Vegetable curry with rice
+2310,Vegetable dip
+2311,Vegetable lasagna
+2312,Vegetable mixture
+2313,Vegetable noodle soup
+2314,Vegetable oil
+2315,Vegetable rice soup
+2316,Vegetable smoothie
+2317,Vegetable soup
+2318,Vegetable soup with chicken broth
+2319,Vegetable stew without meat
+2320,Vegetable submarine sandwich
+2321,Vegetable tempura
+2322,Vegetables
+2323,Vegetables and cheese in pastry
+2324,Vegetables and rice
+2325,Vegetables as ingredient in curry
+2326,Vegetables in pastry
+2327,Vegetarian
+2328,Vegetarian burger or patty
+2329,Vegetarian chili
+2330,Vegetarian pot pie
+2331,Vegetarian stew
+2332,Vegetarian stroganoff
+2333,Vegetarian vegetable soup
+2334,Venison or deer
+2335,Venison or deer and noodles with cream or white sauce
+2336,Venison or deer stew with potatoes and vegetables excluding carrots
+2337,Venison or deer stew with potatoes and vegetables including carrots
+2338,Venison or deer with gravy
+2339,Venison or deer with tomato-based sauce
+2340,Venison/deer
+2341,Venison/deer jerky
+2342,Venison/deer ribs
+2343,Venison/deer steak
+2344,Vermicelli
+2345,Vienna sausage
+2346,Vienna sausages stewed with potatoes
+2347,Vinegar
+2348,Vodka
+2349,Vodka and cola
+2350,Vodka and diet cola
+2351,Vodka and energy drink
+2352,Vodka and lemonade
+2353,Vodka and soda
+2354,Vodka and tonic
+2355,Vodka and water
+2356,Vodka sauce with tomatoes and cream
+2357,Waffle
+2358,Walnut oil
+2359,Walnuts
+2360,Wasabi paste
+2361,Wasabi peas
+2362,Water
+2363,Water Chesnut
+2364,Watercress
+2365,Watercress broth with shrimp
+2366,Watermelon
+2367,Watermelon juice
+2368,Wax candy
+2369,Welsh rarebit
+2370,Whatchamacallit
+2371,Wheat
+2372,Wheat bran
+2373,Wheat bread as ingredient in sandwiches
+2374,Wheat bun as ingredient in sandwiches
+2375,Wheat cereal
+2376,Wheat flour fritter
+2377,Wheat germ
+2378,Wheat germ oil
+2379,Whey
+2380,Whipped topping
+2381,Whiskey
+2382,Whiskey and cola
+2383,Whiskey and diet cola
+2384,Whiskey and ginger ale
+2385,Whiskey and soda
+2386,Whiskey and water
+2387,Whiskey sour
+2388,White Russian
+2389,White beans
+2390,White pizza
+2391,White sauce or gravy
+2392,Whiting
+2393,Whole wheat cereal
+2394,Whole wheat cereal with apples
+2395,Whopper (Burger King)
+2396,Whopper Jr (Burger King)
+2397,Whopper Jr with cheese (Burger King)
+2398,Whopper with cheese (Burger King)
+2399,Wild pig
+2400,Wine
+2401,Wine cooler
+2402,Wine spritzer
+2403,Winter melon
+2404,Winter squash
+2405,Wonton
+2406,Wonton soup
+2407,Worcestershire sauce
+2408,Wrap sandwich
+2409,Yam
+2410,Yam buns; Puerto Rican style
+2411,Yat Ga Mein with meat
+2412,Yeast
+2413,Yeast extract spread
+2414,Yellow rice
+2415,Yellow string beans
+2416,Yogurt
+2417,Yogurt and fruit snack
+2418,Yogurt covered fruit snacks candy
+2419,Yogurt covered fruit snacks candy rolls
+2420,Yogurt dressing
+2421,Yogurt parfait
+2422,Yokan
+2423,Yuca fries
+2424,Zombie
+2425,Zucchini
+2426,Zucchini lasagna
+2427,Zucchini soup
+2428,Zwieback toast

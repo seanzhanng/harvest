@@ -16,14 +16,30 @@ const RecipesPage = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        // const response = await fetch('YOUR_API_ENDPOINT');
-        // const data = await response.json();
-        // setRecipes(data);
+        // Hardcoded data - replace with API call later
+        const data = [
+          {
+            id: 1,
+            name: "Roasted Butternut Squash Soup",
+            url: "https://www.budgetbytes.com/butternut-squash-soup/?utm_source=google&utm_medium=cpc&utm_campaign=22666535188&utm_content=757619904938&utm_term=squash+soup&gad_source=1&gad_campaignid=22666535188&gbraid=0AAAAAoNNKLpqKUcVhLCE2GMfEzINdynJQ&gclid=CjwKCAiAjojLBhAlEiwAcjhrDgi-uIEbeJI8Rja_gFWKq5HdeKrawK9TZHjzZHXHhN2KN_-SrxZ4jxoCzscQAvD_BwE",
+            image: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400"
+          },
+          {
+            id: 2,
+            name: "Apple Cinnamon Oatmeal",
+            url: "https://www.thepioneerwoman.com/food-cooking/recipes/a44735780/apple-cinnamon-oatmeal-recipe/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_pw_md_pmx_hybd_mix_ca_18890344267&gad_source=1&gad_campaignid=18891848801&gbraid=0AAAAABxutSrBoNfB1BLNMjnXtebkaQ-Yj&gclid=CjwKCAiAjojLBhAlEiwAcjhrDqPfsntW7HTiPw3JcSoYhrlOaefS7ekMdOtlUSjo_ogQDULFxQ5VeBoCPfcQAvD_BwE",
+            image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=400"
+          },
+          {
+            id: 3,
+            name: "Pumpkin Pasta",
+            url: "https://www.jaroflemons.com/creamy-pumpkin-pasta/",
+            image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400"
+          }
+        ];
         
-        setTimeout(() => {
-          setRecipes([]);
-          setLoading(false);
-        }, 1000);
+        setRecipes(data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching recipes:', error);
         setLoading(false);
@@ -80,69 +96,4 @@ const RecipesPage = () => {
   );
 };
 
-//this is the change to the recipes page 
-
-
-// Define the Recipe type here, before the component
-interface Recipe {
-  id: number;
-  name: string;
-  url: string;
-  image: string;
-}
-
-function Recipes() {
-  const [recipe, setRecipe] = useState<Recipe[]>([])
-
-  //const results = await fetch('GET endpoint')
-  //data = results.json()
-
-  const handleSetRecipe = async () => {
-    const data = [
-      {
-      id: 1,
-      name: "Roasted Butternut Squash Soup",
-      url: "https://www.allrecipes.com/recipe/12345/squash-soup",
-      image: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400"
-      },
-      {
-      id: 2,
-      name: "Apple Cinnamon Oatmeal",
-      url: "https://www.foodnetwork.com/recipes/apple-oatmeal",
-      image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=400"
-      },
-      {
-      id: 3,
-      name: "Pumpkin Pasta",
-      url: "https://www.bonappetit.com/recipe/pumpkin-pasta",
-      image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400"
-      }
-    ]
-    setRecipe(data)
-  }
-
-  useEffect(() => {
-    handleSetRecipe();
-  }, [])
-
-  return (
-    <div className="recipe-section">
-      <h2 className="recipe-title">Recipes to Try Out!</h2>
-      <div className="recipe-grid">
-        {recipe.map( (recipe_item, index) => (
-          <li key={index} className="recipe-card">
-            <div>{recipe_item.name}</div>
-          </li>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export default function Home() {
-  return (
-    <div className="recipe-container">
-        <RecipesPage />
-    </div>
-  );
-}
+export default RecipesPage;

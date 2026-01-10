@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './home-styling.css';
 
 function NavBar() {
@@ -53,11 +53,29 @@ function SearchBar() {
 }
 
 function Ingredients() {
+  const [produce, setProduce] = useState<string[]>([])
+
+  //const results = await fetch('GET endpoint')
+  //data = results.json()
+
+  const handleSetProduce = async () => {
+    const data = ["apple", "cheese", "banana", "mangos", "chicken", "a", "a", "a", "a", "a", "a"]
+    setProduce(data)
+  }
+
+  useEffect(() => {
+    handleSetProduce();
+  }, [])
+
   return (
     <div className="ingredients-section">
       <h2 className="ingredients-title">Popular Ingredients</h2>
       <div className="ingredients-grid">
-        <p className="ingredients-placeholder">Here are food items...</p>
+        {produce.map( (produce_item, index) => (
+          <li key={index} className="produce-card">
+            <div>{produce_item}</div>
+          </li>
+        ))}
       </div>
     </div>
   );

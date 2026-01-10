@@ -80,4 +80,69 @@ const RecipesPage = () => {
   );
 };
 
-export default RecipesPage;
+//this is the change to the recipes page 
+
+
+// Define the Recipe type here, before the component
+interface Recipe {
+  id: number;
+  name: string;
+  url: string;
+  image: string;
+}
+
+function Recipes() {
+  const [recipe, setRecipe] = useState<Recipe[]>([])
+
+  //const results = await fetch('GET endpoint')
+  //data = results.json()
+
+  const handleSetRecipe = async () => {
+    const data = [
+      {
+      id: 1,
+      name: "Roasted Butternut Squash Soup",
+      url: "https://www.allrecipes.com/recipe/12345/squash-soup",
+      image: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400"
+      },
+      {
+      id: 2,
+      name: "Apple Cinnamon Oatmeal",
+      url: "https://www.foodnetwork.com/recipes/apple-oatmeal",
+      image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=400"
+      },
+      {
+      id: 3,
+      name: "Pumpkin Pasta",
+      url: "https://www.bonappetit.com/recipe/pumpkin-pasta",
+      image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400"
+      }
+    ]
+    setRecipe(data)
+  }
+
+  useEffect(() => {
+    handleSetRecipe();
+  }, [])
+
+  return (
+    <div className="recipe-section">
+      <h2 className="recipe-title">Recipes to Try Out!</h2>
+      <div className="recipe-grid">
+        {recipe.map( (recipe_item, index) => (
+          <li key={index} className="recipe-card">
+            <div>{recipe_item.name}</div>
+          </li>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <div className="recipe-container">
+        <RecipesPage />
+    </div>
+  );
+}

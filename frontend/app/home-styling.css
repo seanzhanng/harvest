@@ -1,0 +1,174 @@
+/* Main Container */
+.home-container {
+  min-height: 100vh;
+  background: #5f9d57;
+}
+
+/* Navigation Bar */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Search Section */
+.search-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.search-header {
+  margin-bottom: 2rem;
+}
+
+.search-title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.search-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  letter-spacing: 0.15em;
+}
+
+.search-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3rem;
+  background-color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+/* Ingredients Section */
+.ingredients-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.ingredients-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ingredients-grid {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding: 3rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ingredients-placeholder {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-title {
+    font-size: 2rem;
+  }
+
+  .ingredients-title {
+    font-size: 1.5rem;
+  }
+
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .nav-logo {
+    font-size: 1.25rem;
+  }
+
+  .search-section {
+    padding: 3rem 1rem;
+  }
+
+  .ingredients-section {
+    padding: 2rem 1rem;
+  }
+
+  .ingredients-grid {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .search-title {
+    font-size: 1.75rem;
+  }
+
+  .search-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .search-input {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}

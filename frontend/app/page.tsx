@@ -69,7 +69,7 @@ function Ingredients() {
 
   return (
     <div className="ingredients-section">
-      <h2 className="ingredients-title">Popular Ingredients</h2>
+      <h2 className="ingredients-title">Ingredients in Season</h2>
       <div className="ingredients-grid">
         {produce.map( (produce_item, index) => (
           <li key={index} className="produce-card">

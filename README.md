@@ -28,13 +28,12 @@ npm run dev
 
 ### Backend
 
-Still in frontend:
-
+In a new terminal (keep the frontend running):
 ```bash
-cd ../backend
+cd backend
 ```
 
-Create a .env file in the root and enter your database URL and OpenRouter API key(s):
+Create a `.env` file in the backend root and enter your database URL and OpenRouter API key(s):
 ```
 DATABASE_URL=postgresql://postgres...
 OPENROUTER_API_KEYS=sk-or-...

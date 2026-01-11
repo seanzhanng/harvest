@@ -7,7 +7,7 @@ export default function ItemPage() {
     // defined in route path and the values are the corresponding segments from the actual URL
     const params = useParams();
     const id = params.id;
-    const [item, setItem] = useState<string[]>([]);
+    const [item, setItem] = useState< {item: string, season: string} | null >(null);
     const[loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function ItemPage() {
                 //const response = await fetch('GET Endpoint') with {id} in the URL
                 //const data = await response.json()
                 //setItem(data)
-                setItem(["apple"])
+                setItem({item: "apple", season: "fall"})
             } catch (error) {
                 console.error('Failed to fetch item:', error);
             } finally {

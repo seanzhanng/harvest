@@ -53,13 +53,14 @@ function SearchBar() {
 }
 
 function Ingredients() {
-  const [produce, setProduce] = useState<string[]>([])
-
-  //const results = await fetch('GET endpoint')
-  //data = results.json()
-
+  const [produce, setProduce] = useState<Array<{item: string, season: string}>>([])
   const handleSetProduce = async () => {
-    const data = ["apple", "cheese", "banana", "mangos", "chicken", "a", "a", "a", "a", "a", "a"]
+    //database returns a response object
+    //const results = await fetch('GET endpoint')
+
+    //use .json() to turn into a javascript object
+    //const data = results.json()
+    const data = [{item: "apple", season: "fall"}, {item: "cheese", season: "fall"}, {item: "banana", season: "summer"}]
     setProduce(data)
   }
 

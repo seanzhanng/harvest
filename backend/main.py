@@ -7,8 +7,7 @@ load_dotenv(dotenv_path=env_path)
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import create_db_and_tables
-
-from routes import router 
+from routers import foods, recipes, generator
 
 app = FastAPI()
 
@@ -25,8 +24,10 @@ app.add_middleware(
 def on_startup():
     create_db_and_tables()
 
-app.include_router(router)
+app.include_router(foods.router)
+app.include_router(recipes.router)
+app.include_router(generator.router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Harvest API is running via routes.py!"}
+    return {"message": "Harvest API is running with specialized routers!"}

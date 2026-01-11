@@ -7,7 +7,7 @@ load_dotenv(dotenv_path=env_path)
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import create_db_and_tables
-from routers import foods, recipes, generator, scraper
+from routers import foods, recipes, recipe_engine
 
 app = FastAPI()
 
@@ -26,8 +26,7 @@ def on_startup():
 
 app.include_router(foods.router)
 app.include_router(recipes.router)
-app.include_router(generator.router)
-app.include_router(scraper.router)
+app.include_router(recipe_engine.router)
 
 @app.get("/")
 def read_root():

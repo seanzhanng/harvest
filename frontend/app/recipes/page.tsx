@@ -1,113 +1,116 @@
 "use client";
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
-import NavBar from '@/components/NavBar';
-import { useRecipeEngine } from '@/hooks/useRecipeEngine';
-import Image from 'next/image'; // <--- UPDATED
-import '@/styles/styling.css';
 
-function RecipesContent() {
-  const searchParams = useSearchParams();
-  const initialQuery = searchParams.get('q') || '';
-  const [query, setQuery] = useState(initialQuery);
-  const [hasSearched, setHasSearched] = useState(false);
+import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
-  // Hook handles: results, loading boolean, and error messages
-  const { results, loading, error, generateRecipes } = useRecipeEngine();
+// --- Types & Constants ---
 
-  // --- FIX 1: DEFINE FUNCTION FIRST ---
-  const handleSearch = (searchTerm: string) => {
-    if (!searchTerm) return;
-    setHasSearched(true);
-    const ingredients = searchTerm.split(',').map(s => s.trim());
-    generateRecipes(ingredients);
-  };
+interface Recipe {
+  id: number;
+  name: string;
+  url: string;
+  image: string;
+}
 
-  // --- FIX 2: CALL LOGIC DIRECTLY IN EFFECT ---
-  // This avoids the "missing dependency" linter error for handleSearch
+const RECIPES_DATA: Recipe[] = [
+  {
+    id: 1,
+    name: "Roasted Butternut Squash Soup",
+    url: "https://www.budgetbytes.com/butternut-squash-soup/?utm_source=google&utm_medium=cpc&utm_campaign=22666535188&utm_content=757619904938&utm_term=squash+soup&gad_source=1&gad_campaignid=22666535188&gbraid=0AAAAAoNNKLpqKUcVhLCE2GMfEzINdynJQ&gclid=CjwKCAiAjojLBhAlEiwAcjhrDgi-uIEbeJI8Rja_gFWKq5HdeKrawK9TZHjzZHXHhN2KN_-SrxZ4jxoCzscQAvD_BwE",
+    image: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400"
+  },
+  {
+    id: 2,
+    name: "Apple Cinnamon Oatmeal",
+    url: "https://www.thepioneerwoman.com/food-cooking/recipes/a44735780/apple-cinnamon-oatmeal-recipe/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_pw_md_pmx_hybd_mix_ca_18890344267&gad_source=1&gad_campaignid=18891848801&gbraid=0AAAAABxutSrBoNfB1BLNMjnXtebkaQ-Yj&gclid=CjwKCAiAjojLBhAlEiwAcjhrDqPfsntW7HTiPw3JcSoYhrlOaefS7ekMdOtlUSjo_ogQDULFxQ5VeBoCPfcQAvD_BwE",
+    image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=400"
+  },
+  {
+    id: 3,
+    name: "Pumpkin Pasta",
+    url: "https://www.jaroflemons.com/creamy-pumpkin-pasta/",
+    image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400"
+  }
+];
+
+// --- Component ---
+
+const RecipesPage = () => {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (initialQuery) {
-      setHasSearched(true);
-      const ingredients = initialQuery.split(',').map(s => s.trim());
-      generateRecipes(ingredients);
-    }
-    // We intentionally only run this when the URL query changes
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialQuery]);
+    // Simulating API fetch
+    const fetchRecipes = async () => {
+      try {
+        // Simulate network delay if desired, otherwise this runs instantly
+        // await new Promise(resolve => setTimeout(resolve, 500)); 
+        setRecipes(RECIPES_DATA);
+      } catch (error) {
+        console.error('Error fetching recipes:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    handleSearch(query);
-  };
+    fetchRecipes();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-[#c9c0a6]">
+        <div className="text-2xl font-semibold text-[#193900]">Loading recipes...</div>
+      </div>
+    );
+  }
 
   return (
-    <div className="recipes-container">
-      <NavBar />
-      
-      <div className="recipes-header">
-        <h1 className="recipes-title">Recipe Generator</h1>
-        <p className="recipes-subtitle">ENTER INGREDIENTS, GET REAL RECIPES</p>
-        
-        <form onSubmit={onSubmit} style={{maxWidth: '600px', margin: '2rem auto'}}>
-           <input 
-              type="text" 
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="e.g. Chicken, Broccoli, Cheese"
-              className="search-input"
-           />
-        </form>
-      </div>
+    <main className="min-h-screen bg-[#e7dcc8] px-4 py-12 md:px-8">
+      <header className="mb-12 text-center">
+        <h1 className="mb-2 text-3xl font-bold text-[#193900] md:text-5xl">
+          Popular Recipes
+        </h1>
+        <p className="text-xs tracking-[0.15em] text-[#193900] md:text-sm">
+          DISCOVER THE MOST LOVED DISHES
+        </p>
+      </header>
 
-      {loading ? (
-        <div className="loading-container" style={{minHeight: '30vh', background: 'transparent'}}>
-          <div className="loading-text">The AI Chef is thinking...</div>
+      {recipes.length === 0 ? (
+        <div className="flex min-h-[50vh] items-center justify-center">
+          <p className="text-lg text-[#193900]">
+            No recipes available yet. Check back soon!
+          </p>
         </div>
       ) : (
-        <>
-          {error && (
-             <div className="empty-state">
-                <p className="empty-text" style={{color: 'red'}}>{error}</p>
-             </div>
-          )}
-
-          {results.length > 0 ? (
-            <div className="recipes-grid">
-              {results.map((recipe, idx) => (
-                <div
-                  key={idx}
-                  onClick={() => window.open(recipe.recipe_link, '_blank')}
-                  className="recipe-card"
-                >
-                  {/* --- FIX 3: USE NEXT/IMAGE --- */}
-                  <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-                    <Image
-                      src={`https://source.unsplash.com/400x300/?${recipe.meal_name.replace(/\s/g, ',')}`}
-                      alt={recipe.meal_name}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      unoptimized // REQUIRED for external URLs like unsplash/placehold.co without config
-                    />
-                  </div>
-                  <h3 className="recipe-name">{recipe.meal_name}</h3>
-                </div>
-              ))}
-            </div>
-          ) : hasSearched && !loading && !error && (
-            <div className="empty-state">
-              <p className="empty-text">No recipes found. Try different ingredients!</p>
-            </div>
-          )}
-        </>
+        <div className="mx-auto grid max-w-300 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8 px-4">
+          {recipes.map((recipe) => (
+            // Accessibility Improvement: Using an <a> tag instead of a div with onClick.
+            // This makes the card clickable, tab-able, and SEO friendly.
+            <a
+              key={recipe.id}
+              href={recipe.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
+            >
+              <div className="relative h-48 w-full">
+                <Image
+                  src={recipe.image}
+                  alt={recipe.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+              </div>
+              <h3 className="p-4 text-xl font-semibold text-gray-800">
+                {recipe.name}
+              </h3>
+            </a>
+          ))}
+        </div>
       )}
-    </div>
+    </main>
   );
-}
+};
 
-export default function RecipesPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <RecipesContent />
-    </Suspense>
-  );
-}
+export default RecipesPage;

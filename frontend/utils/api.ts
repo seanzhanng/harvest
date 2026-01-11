@@ -22,7 +22,7 @@ export interface SavedRecipe {
 }
 
 export interface Recipe {
-    status_coode: number;
+    status_code: number;
     results: Array<{
         title: string;
         instructions: string;

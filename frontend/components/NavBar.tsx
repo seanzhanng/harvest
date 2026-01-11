@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function NavBar() {
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-[#193900]/20 bg-[#e7dcc8]/30 py-4 backdrop-blur-md">
+    <nav className="w-full bg-[#e7dcc8] py-4">
       <div className="mx-auto flex max-w-300 items-center justify-between px-4 md:px-8">
         <Link href="/" className="text-xl font-bold text-[#193900] md:text-2xl hover:opacity-80 transition-opacity">
           Food Explorer

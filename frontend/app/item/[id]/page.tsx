@@ -3,50 +3,39 @@
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { api, Food, SavedRecipe } from '@/utils/api';
+
 
 // --- Types ---
 
-interface ItemData {
-  id: string;
-  name: string;
-  season: string;
-  description: string;
-  recipes: Array<{ name: string; url: string }>;
+interface RecipeGenerated {
+  title: string;
+  instructions: string;
+  ingredients_used: string;
 }
 
 // --- Component ---
 
 export default function ItemPage() {
   const params = useParams();
-  // Ensure we handle the possibility of params.id being an array (though unlikely in simple routes)
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
   
-  const [item, setItem] = useState<ItemData | null>(null);
+  const [item, setItem] = useState<Food | null>(null);
+  const [generatedRecipes, setGeneratedRecipes] = useState<RecipeGenerated[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingRecipes, setLoadingRecipes] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [saveStatus, setSaveStatus] = useState<{ [key: number]: string }>({});
 
+  
+  // Fetch food item by ID
   useEffect(() => {
     const fetchItem = async () => {
       if (!id) return;
 
       try {
-        // Simulating API fetch based on ID
-        // In a real app, you would fetch `/api/items/${id}`
-        
-        // Mock data logic just for demonstration
-        const mockData: ItemData = {
-          id: id, 
-          name: decodeURIComponent(id), // Decodes "apple" from URL
-          season: "Fall",
-          description: "Crisp, sweet, and perfect for baking or snacking. Best enjoyed fresh from the orchard.",
-          recipes: [
-            { name: "Apple Pie", url: "#" },
-            { name: "Cinnamon Apple Oatmeal", url: "#" },
-            { name: "Apple Cider", url: "#" }
-          ]
-        };
-
-        setItem(mockData);
+        const foodData = await api.getFoodById(Number(id));
+        setItem(foodData);
       } catch (error) {
         console.error('Failed to fetch item:', error);
       } finally {
@@ -56,6 +45,51 @@ export default function ItemPage() {
 
     fetchItem();
   }, [id]);
+
+  // Generate recipes when item is loaded
+  useEffect(() => {
+    const generateRecipes = async () => {
+      if (!item) return;
+
+      setLoadingRecipes(true);
+      try {
+        const response = await api.getRecipes([item.name]);
+        if (response.results && response.results.length > 0) {
+          setGeneratedRecipes(response.results);
+        }
+      } catch (error) {
+        console.error('Failed to generate recipes:', error);
+      } finally {
+        setLoadingRecipes(false);
+      }
+    };
+
+    generateRecipes();
+  }, [item]);
+
+  // Handle saving a recipe
+  const handleSaveRecipe = async (recipe: RecipeGenerated, index: number) => {
+    try {
+      setSaveStatus({ ...saveStatus, [index]: 'saving' });
+      
+      await api.setSavedRecipe({
+        title: recipe.title,
+        instructions: recipe.instructions,
+        ingredients_used: recipe.ingredients_used
+      });
+      
+      setSaveStatus({ ...saveStatus, [index]: 'saved' });
+      
+      // Reset status after 2 seconds
+      setTimeout(() => {
+        setSaveStatus({ ...saveStatus, [index]: '' });
+      }, 2000);
+    } catch (error) {
+      console.error('Failed to save recipe:', error);
+      setSaveStatus({ ...saveStatus, [index]: 'error' });
+    }
+  };
+  
 
   if (loading) {
     return (
@@ -96,41 +130,90 @@ export default function ItemPage() {
           <h1 className="mb-4 text-4xl font-bold capitalize text-[#193900] md:text-5xl">
             {item.name}
           </h1>
-          <p className="text-lg text-[#193900]/80">
-            {item.description}
-          </p>
+          {item.description && (
+            <p className="text-lg text-[#193900]/80">
+              {item.description}
+            </p>
+          )}
+          {item.eco_score && (
+            <div className="mt-4">
+              <span className="inline-block rounded-full bg-green-100 px-4 py-1 text-sm font-semibold text-green-800">
+                Eco Score: {item.eco_score}/10
+              </span>
+            </div>
+          )}
         </header>
 
         <section>
           <h2 className="mb-6 text-2xl font-bold text-[#193900]">
-            Recommended Recipes
+            AI-Generated Recipes
           </h2>
-          {item.recipes.length > 0 ? (
+          
+          {loadingRecipes ? (
+            <div className="text-center py-8">
+              <div className="text-lg text-[#193900]/60">Generating recipes...</div>
+            </div>
+          ) : generatedRecipes.length > 0 ? (
             <ul className="grid gap-4 md:grid-cols-2">
-              {item.recipes.map((recipe, index) => (
+              {generatedRecipes.map((recipe, index) => (
                 <li key={index}>
-                  <div 
-                    className="rounded-xl border border-[#193900]/10 bg-[#e7dcc8]/20 p-6 transition-all hover:-translate-y-1 hover:border-[#193900]/30 hover:bg-[#e7dcc8]/40 hover:shadow-md"
-                  >
-                    <a href={recipe.url} className="font-semibold text-[#193900] hover:underline">
-                      {recipe.name}
-                    </a>
-                    <div className="mt-2">
-                      <button onClick={() => setOpenDropdown(openDropdown === index ? null : index)} className="bg-[#193900] hover:bg-[#193900]/80 text-white font-semibold py-2 px-4 rounded text-sm">View recipes</button>
-                      {openDropdown === index && (
-                        <div>
-                          <p className="px-4 py-2 text-gray-500 text-sm">Placholder for gemini recipe...</p>
-                          <a href={`https://google.com`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Recipe 1</a>
-                          <a href={`https://google.com`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Recipe 2</a>
-                        </div>
-                      )}
+                  <div className="rounded-xl border border-[#193900]/10 bg-[#e7dcc8]/20 p-6 transition-all hover:-translate-y-1 hover:border-[#193900]/30 hover:bg-[#e7dcc8]/40 hover:shadow-md">
+                    <h3 className="font-semibold text-[#193900] text-lg mb-2">
+                      {recipe.title}
+                    </h3>
+                    
+                    <div className="mt-4 flex gap-2">
+                      <button 
+                        onClick={() => setOpenDropdown(openDropdown === index ? null : index)} 
+                        className="bg-[#193900] hover:bg-[#193900]/80 text-white font-semibold py-2 px-4 rounded text-sm transition-colors"
+                      >
+                        {openDropdown === index ? 'Hide Details' : 'View Details'}
+                      </button>
+                      
+                      <button
+                        onClick={() => handleSaveRecipe(recipe, index)}
+                        disabled={saveStatus[index] === 'saving'}
+                        className={`font-semibold py-2 px-4 rounded text-sm transition-colors ${
+                          saveStatus[index] === 'saved'
+                            ? 'bg-green-600 text-white'
+                            : saveStatus[index] === 'error'
+                            ? 'bg-red-600 text-white'
+                            : 'bg-white border-2 border-[#193900] text-[#193900] hover:bg-[#193900] hover:text-white'
+                        }`}
+                      >
+                        {saveStatus[index] === 'saving' 
+                          ? 'Saving...' 
+                          : saveStatus[index] === 'saved'
+                          ? '✓ Saved!'
+                          : saveStatus[index] === 'error'
+                          ? 'Error'
+                          : 'Save Recipe'}
+                      </button>
                     </div>
+                    
+                    {openDropdown === index && (
+                      <div className="mt-4 border-t border-[#193900]/10 pt-4">
+                        <div className="mb-4">
+                          <h4 className="font-semibold text-[#193900] mb-2">Ingredients:</h4>
+                          <p className="text-sm text-[#193900]/80 whitespace-pre-line">
+                            {recipe.ingredients_used}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-[#193900] mb-2">Instructions:</h4>
+                          <p className="text-sm text-[#193900]/80 whitespace-pre-line">
+                            {recipe.instructions}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-[#193900]/60">No recipes found for this item.</p>
+            <p className="text-[#193900]/60">No recipes generated yet. Try refreshing the page.</p>
           )}
         </section>
       </div>

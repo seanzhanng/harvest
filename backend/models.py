@@ -4,15 +4,14 @@ from sqlmodel import Field, SQLModel
 class Food(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str
-    season: str         # "Winter", "Spring", "All Year"
-    eco_score: int      # 1-10
-    base_price: float
-    category: str       # "Vegetable", "Fruit", "Protein"
-    description: Optional[str] = None # Added for AI summaries
+    season: str         
+    eco_score: int      
+    category: str       
+    description: Optional[str] = None
+    image: str = "https://placehold.co/400?text=No+Image" 
 
-# We only store recipes if the user hits "Save"
 class SavedRecipe(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     title: str
     instructions: str
-    ingredients_used: str # Store as "Apple, Spinach" for simplicity
+    ingredients_used: str

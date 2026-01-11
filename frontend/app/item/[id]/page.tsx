@@ -23,6 +23,7 @@ export default function ItemPage() {
   
   const [item, setItem] = useState<ItemData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -108,12 +109,23 @@ export default function ItemPage() {
             <ul className="grid gap-4 md:grid-cols-2">
               {item.recipes.map((recipe, index) => (
                 <li key={index}>
-                  <a 
-                    href={recipe.url}
-                    className="block rounded-xl border border-[#193900]/10 bg-[#e7dcc8]/20 p-6 transition-all hover:-translate-y-1 hover:border-[#193900]/30 hover:bg-[#e7dcc8]/40 hover:shadow-md"
+                  <div 
+                    className="rounded-xl border border-[#193900]/10 bg-[#e7dcc8]/20 p-6 transition-all hover:-translate-y-1 hover:border-[#193900]/30 hover:bg-[#e7dcc8]/40 hover:shadow-md"
                   >
-                    <span className="font-semibold text-[#193900]">{recipe.name}</span>
-                  </a>
+                    <a href={recipe.url} className="font-semibold text-[#193900] hover:underline">
+                      {recipe.name}
+                    </a>
+                    <div className="mt-2">
+                      <button onClick={() => setOpenDropdown(openDropdown === index ? null : index)} className="bg-[#193900] hover:bg-[#193900]/80 text-white font-semibold py-2 px-4 rounded text-sm">View recipes</button>
+                      {openDropdown === index && (
+                        <div>
+                          <p className="px-4 py-2 text-gray-500 text-sm">Placholder for gemini recipe...</p>
+                          <a href={`https://google.com`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Recipe 1</a>
+                          <a href={`https://google.com`} className="block px-4 py-2 text-gray-700 hover:bg-gray-100">Recipe 2</a>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </li>
               ))}
             </ul>

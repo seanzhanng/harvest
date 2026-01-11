@@ -11,6 +11,11 @@ interface ProduceItem {
   season: string;
 }
 
+interface CartItem {
+  id: string;
+  name: string;
+  quantity: number;
+}
 // Defined outside component to avoid recreation on render
 const SEASONAL_PRODUCE: ProduceItem[] = [
   { id: 'apple-1', item: "apple", season: "fall" },
@@ -67,7 +72,7 @@ function Ingredients() {
   // unless you plan to fetch from an API. I've simplified it to use the constant directly.
   
   return (
-    <section className="mx-auto max-w-300 px-4 py-8 md:px-8 md:py-12">
+    <section className="mx-auto max-w-280 px-4 py-8 md:px-8 md:py-12">
       <h2 className="mb-8 text-center text-2xl font-bold text-[#193900] md:text-3xl">
         Ingredients in Season
       </h2>
@@ -91,11 +96,50 @@ function Ingredients() {
   );
 }
 
+function ShoppingCart() {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  // Calculate total items in cart
+  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  return (
+    <div className="fixed right-4 top-20 h-[640px] w-48 rounded-lg border border-[#193900]/20 bg-white p-3 shadow-lg">
+      {/* Cart Header */}
+      <div className="mb-3 border-b border-gray-200 pb-2">
+        <h2 className="text-lg font-bold text-[#193900]">Cart</h2>
+        <p className="mt-1 text-xs text-gray-600">{totalItems} items</p>
+      </div>
+
+      {/* Cart Items List */}
+      <div className="h-[calc(100%-70px)] overflow-y-auto">
+        {cartItems.length === 0 ? (
+          <div className="flex h-full flex-col items-center justify-center text-gray-400">
+            <span className="mb-2 text-3xl">🛒</span>
+            <p className="text-center text-xs">Cart is empty</p>
+          </div>
+        ) : (
+          <ul className="space-y-2">
+            {cartItems.map((item) => (
+              <li
+                key={item.id}
+                className="rounded-lg border border-gray-200 p-2"
+              >
+                <p className="text-sm font-semibold capitalize text-[#193900]">{item.name}</p>
+                <p className="text-xs text-gray-600">Qty: {item.quantity}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
 // --- Main Page ---
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#e7dcc8]">
+      <ShoppingCart /> 
       <SearchBar />
       <Ingredients />
     </main>

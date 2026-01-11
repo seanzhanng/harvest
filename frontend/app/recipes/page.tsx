@@ -1,116 +1,117 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { api, SavedRecipe } from '@/utils/api';
 
-// --- Types & Constants ---
-
-interface Recipe {
-  id: number;
-  name: string;
-  url: string;
-  image: string;
-}
-
-const RECIPES_DATA: Recipe[] = [
-  {
-    id: 1,
-    name: "Roasted Butternut Squash Soup",
-    url: "https://www.budgetbytes.com/butternut-squash-soup/?utm_source=google&utm_medium=cpc&utm_campaign=22666535188&utm_content=757619904938&utm_term=squash+soup&gad_source=1&gad_campaignid=22666535188&gbraid=0AAAAAoNNKLpqKUcVhLCE2GMfEzINdynJQ&gclid=CjwKCAiAjojLBhAlEiwAcjhrDgi-uIEbeJI8Rja_gFWKq5HdeKrawK9TZHjzZHXHhN2KN_-SrxZ4jxoCzscQAvD_BwE",
-    image: "https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?w=400"
-  },
-  {
-    id: 2,
-    name: "Apple Cinnamon Oatmeal",
-    url: "https://www.thepioneerwoman.com/food-cooking/recipes/a44735780/apple-cinnamon-oatmeal-recipe/?utm_source=google&utm_medium=cpc&utm_campaign=mgu_ga_pw_md_pmx_hybd_mix_ca_18890344267&gad_source=1&gad_campaignid=18891848801&gbraid=0AAAAABxutSrBoNfB1BLNMjnXtebkaQ-Yj&gclid=CjwKCAiAjojLBhAlEiwAcjhrDqPfsntW7HTiPw3JcSoYhrlOaefS7ekMdOtlUSjo_ogQDULFxQ5VeBoCPfcQAvD_BwE",
-    image: "https://images.unsplash.com/photo-1517673132405-a56a62b18caf?w=400"
-  },
-  {
-    id: 3,
-    name: "Pumpkin Pasta",
-    url: "https://www.jaroflemons.com/creamy-pumpkin-pasta/",
-    image: "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400"
-  }
-];
-
-// --- Component ---
-
-const RecipesPage = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+export default function RecipesPage() {
+  const [recipes, setRecipes] = useState<SavedRecipe[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    // Simulating API fetch
-    const fetchRecipes = async () => {
-      try {
-        // Simulate network delay if desired, otherwise this runs instantly
-        // await new Promise(resolve => setTimeout(resolve, 500)); 
-        setRecipes(RECIPES_DATA);
-      } catch (error) {
-        console.error('Error fetching recipes:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const fetchRecipes = async () => {
+    try {
+      const data = await api.getSavedRecipe();
+      setRecipes(data);
+    } catch (error) {
+      console.error('Error fetching recipes:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchRecipes();
   }, []);
 
+  const handleDelete = async (id: number) => {
+    // UPDATED: Removed the confirm() popup. Deletion is now instant.
+    try {
+        await api.deleteSavedRecipe(id);
+        setRecipes(prev => prev.filter(r => r.id !== id));
+    } catch (err) {
+        console.error("Failed to delete recipe", err);
+        alert("Failed to delete recipe");
+    }
+  }
+
   if (loading) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#c9c0a6]">
-        <div className="text-2xl font-semibold text-[#193900]">Loading recipes...</div>
+      <div className="flex min-h-screen items-center justify-center bg-[#e7dcc8]">
+        <div className="text-2xl font-semibold text-[#193900]">Loading your cookbook...</div>
       </div>
     );
   }
 
   return (
     <main className="min-h-screen bg-[#e7dcc8] px-4 py-12 md:px-8">
-      <header className="mb-12 text-center">
+      {/* Header */}
+      <div className="mb-12 text-center">
         <h1 className="mb-2 text-3xl font-bold text-[#193900] md:text-5xl">
-          Popular Recipes
+          Your Saved Recipes
         </h1>
         <p className="text-xs tracking-[0.15em] text-[#193900] md:text-sm">
-          DISCOVER THE MOST LOVED DISHES
+          AI GENERATED & SAVED
         </p>
-      </header>
+      </div>
 
+      {/* Empty State */}
       {recipes.length === 0 ? (
-        <div className="flex min-h-[50vh] items-center justify-center">
+        <div className="flex min-h-[50vh] flex-col items-center justify-center text-center">
           <p className="text-lg text-[#193900]">
-            No recipes available yet. Check back soon!
+            No saved recipes yet.
+          </p>
+          <p className="text-[#193900]/60 mt-2 text-sm">
+            Go back to the home page to generate and save new recipes!
           </p>
         </div>
       ) : (
+        /* Recipe Grid */
         <div className="mx-auto grid max-w-300 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8 px-4">
           {recipes.map((recipe) => (
-            // Accessibility Improvement: Using an <a> tag instead of a div with onClick.
-            // This makes the card clickable, tab-able, and SEO friendly.
-            <a
+            <div
               key={recipe.id}
-              href={recipe.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
+              className="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-200 hover:shadow-xl"
             >
-              <div className="relative h-48 w-full">
-                <Image
-                  src={recipe.image}
-                  alt={recipe.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+              <div className="bg-[#193900] p-4 text-white">
+                <h3 className="text-xl font-bold">
+                    {recipe.title}
+                </h3>
               </div>
-              <h3 className="p-4 text-xl font-semibold text-gray-800">
-                {recipe.name}
-              </h3>
-            </a>
+              
+              <div className="p-6 flex-1">
+                <div className="mb-6">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-2">
+                        Ingredients
+                    </h4>
+                    <p className="text-sm text-[#193900]/80 italic leading-relaxed">
+                        {recipe.ingredients_used}
+                    </p>
+                </div>
+
+                <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-2">
+                        Instructions
+                    </h4>
+                    <p className="text-sm text-[#193900] whitespace-pre-line leading-relaxed">
+                        {recipe.instructions}
+                    </p>
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 p-4 border-t border-gray-100 flex justify-end">
+                <button 
+                    onClick={() => recipe.id && handleDelete(recipe.id)}
+                    className="flex items-center gap-2 text-xs font-bold text-red-600 hover:text-red-800 uppercase tracking-wider transition-colors"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+                      <path fillRule="evenodd" d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z" clipRule="evenodd" />
+                    </svg>
+                    Delete Recipe
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       )}
     </main>
   );
 };
-
-export default RecipesPage;

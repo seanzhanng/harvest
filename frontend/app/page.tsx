@@ -1,46 +1,129 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react'; // Added useCallback
 import { api, Food, Recipe } from '@/utils/api';
+import ShoppingCart, { CartItem } from '@/components/ShoppingCart';
 
-// --- Types ---
+// --- NEW COMPONENT: Filter Bar ---
 
-interface CartItem {
-  id: number;
-  name: string;
-  quantity: number;
+interface FilterBarProps {
+  categories: string[];
+  selectedCategory: string;
+  selectedSeason: string;
+  ecoRange: [number, number];
+  onCategoryChange: (c: string) => void;
+  onSeasonChange: (s: string) => void;
+  onEcoRangeChange: (r: [number, number]) => void;
 }
 
-// --- Components ---
+function FilterBar({ 
+  categories, selectedCategory, onCategoryChange,
+  selectedSeason, onSeasonChange,
+  ecoRange, onEcoRangeChange 
+}: FilterBarProps) {
+  
+  // Dual Slider Logic
+  const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = Math.min(Number(e.target.value), ecoRange[1] - 1);
+    onEcoRangeChange([val, ecoRange[1]]);
+  };
 
-function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
-  const [query, setQuery] = useState("");
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    setQuery(val);
-    onSearch(val);
+  const handleMaxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = Math.max(Number(e.target.value), ecoRange[0] + 1);
+    onEcoRangeChange([ecoRange[0], val]);
   };
 
   return (
-    <section className="px-4 py-12 text-center md:px-8 md:py-16">
-      <div className="mb-8">
+    <div className="mx-auto mb-8 flex max-w-4xl flex-col gap-6 rounded-2xl bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between">
+      
+      {/* 1. Category Dropdown */}
+      <div className="flex-1">
+        <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-[#193900]/60">Category</label>
+        <select 
+          value={selectedCategory}
+          onChange={(e) => onCategoryChange(e.target.value)}
+          className="w-full rounded-lg border border-[#193900]/20 bg-[#f8f5f0] p-3 text-[#193900] outline-none focus:border-[#193900]"
+        >
+          <option value="All">All Categories</option>
+          {categories.map(c => <option key={c} value={c}>{c}</option>)}
+        </select>
+      </div>
+
+      {/* 2. Season Dropdown */}
+      <div className="flex-1">
+        <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-[#193900]/60">Season</label>
+        <select 
+          value={selectedSeason}
+          onChange={(e) => onSeasonChange(e.target.value)}
+          className="w-full rounded-lg border border-[#193900]/20 bg-[#f8f5f0] p-3 text-[#193900] outline-none focus:border-[#193900]"
+        >
+          <option value="All">All Seasons</option>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option>
+          <option value="Fall">Fall</option>
+          <option value="Winter">Winter</option>
+          <option value="All Year">All Year</option>
+        </select>
+      </div>
+
+      {/* 3. Eco Score Dual Slider */}
+      <div className="flex-[1.5]">
+        <div className="mb-2 flex justify-between">
+            <label className="text-xs font-bold uppercase tracking-wider text-[#193900]/60">Eco Score Range</label>
+            <span className="text-xs font-bold text-[#193900]">{ecoRange[0]} - {ecoRange[1]}</span>
+        </div>
+        
+        <div className="relative h-10 pt-4">
+            {/* Visual Track */}
+            <div className="absolute top-5 h-1 w-full rounded-full bg-gray-200"></div>
+            <div 
+                className="absolute top-5 h-1 rounded-full bg-[#193900]"
+                style={{
+                    left: `${(ecoRange[0] - 1) * 11.1}%`,
+                    right: `${100 - ((ecoRange[1] - 1) * 11.1)}%`
+                }}
+            ></div>
+
+            {/* Hidden Inputs for Handles */}
+            <input 
+                type="range" min="1" max="10" step="1"
+                value={ecoRange[0]} onChange={handleMinChange}
+                className="pointer-events-none absolute top-3 w-full appearance-none bg-transparent [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#193900] [&::-webkit-slider-thumb]:shadow-md"
+            />
+            <input 
+                type="range" min="1" max="10" step="1"
+                value={ecoRange[1]} onChange={handleMaxChange}
+                className="pointer-events-none absolute top-3 w-full appearance-none bg-transparent [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#193900] [&::-webkit-slider-thumb]:shadow-md"
+            />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- EXISTING COMPONENTS ---
+
+function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
+  const [query, setQuery] = useState("");
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+    onSearch(e.target.value);
+  };
+  return (
+    <section className="mx-auto max-w-300 px-4 pt-12 pb-4 text-center md:px-8 md:pt-16 md:pb-6">
+      <div className="mb-6">
         <h1 className="mb-2 text-3xl font-bold text-[#193900] sm:text-4xl md:text-5xl">
           Find the Perfect Recipe
         </h1>
-        <p className="text-xs tracking-[0.15em] text-[#193900] md:text-sm">
-          SEARCH INGREDIENTS OR DISHES
-        </p>
+        <p className="text-xs tracking-[0.15em] text-[#193900] md:text-sm">SEARCH INGREDIENTS OR DISHES</p>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="mx-auto max-w-150">
+      <form onSubmit={(e) => e.preventDefault()} className="mx-auto max-w-2xl relative">
         <input 
           type="text" 
-          aria-label="Search ingredients"
-          placeholder="Search for food items or recipes..." 
-          value={query} 
-          onChange={handleSearch}
-          className="w-full rounded-full border-2 border-[#193900]/20 bg-white px-6 py-4 text-base text-[#193900] shadow-lg outline-none transition-all duration-200 placeholder:text-[#193900]/50 focus:-translate-y-0.5 focus:border-[#193900] focus:shadow-xl md:text-lg"
+          placeholder="Search for food items..." 
+          value={query} onChange={handleSearch}
+          className="w-full rounded-full border-2 border-[#193900]/20 bg-white px-6 py-4 text-base text-[#193900] shadow-lg outline-none transition-all placeholder:text-[#193900]/50 focus:-translate-y-0.5 focus:border-[#193900] focus:shadow-xl"
         />
       </form>
     </section>
@@ -48,176 +131,148 @@ function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
 }
 
 function Ingredients({ 
-  onAddToCart, 
-  searchQuery 
+  onAddToCart, searchQuery, selectedCategory, selectedSeason, ecoRange 
 }: { 
   onAddToCart: (food: Food) => void;
   searchQuery: string;
+  selectedCategory: string;
+  selectedSeason: string;
+  ecoRange: [number, number];
 }) {
   const [foods, setFoods] = useState<Food[]>([]);
   const [loading, setLoading] = useState(true);
+  const [offset, setOffset] = useState(0);
+  const [hasMore, setHasMore] = useState(true);
+  const LIMIT = 20;
 
-  useEffect(() => {
-    const fetchFoods = async () => {
-      try {
-        // Backend now automatically sorts by Eco Score DESC
-        const data = await api.getFoods(undefined, searchQuery);
+  // Destructure ecoRange to fix "complex expression" dependency warning
+  const [minEco, maxEco] = ecoRange;
+
+  // Memoize fetchFoods so it can be a dependency of useEffect
+  const fetchFoods = useCallback(async (currentOffset: number, isLoadMore: boolean) => {
+    setLoading(true);
+    try {
+      const data = await api.getFoods(
+        selectedSeason, 
+        searchQuery, 
+        selectedCategory, 
+        minEco, 
+        maxEco, 
+        currentOffset, 
+        LIMIT
+      );
+      
+      if (data.length < LIMIT) setHasMore(false);
+      else setHasMore(true);
+
+      if (isLoadMore) {
+        setFoods((prev) => {
+          const existingIds = new Set(prev.map((item) => item.id));
+          const uniqueNewItems = data.filter((item) => item.id !== undefined && !existingIds.has(item.id));
+          return [...prev, ...uniqueNewItems];
+        });
+        setOffset(currentOffset + LIMIT);
+      } else {
         setFoods(data);
-      } catch (error) {
-        console.error("Failed to fetch foods", error);
-      } finally {
-        setLoading(false);
+        setOffset(LIMIT);
       }
-    };
+    } catch (error) {
+      console.error("Failed to fetch foods", error);
+    } finally {
+      setLoading(false);
+    }
+  }, [selectedSeason, searchQuery, selectedCategory, minEco, maxEco]);
 
-    fetchFoods();
-  }, [searchQuery]);
+  // Trigger fetch when filters change (implicitly fetches page 0)
+  useEffect(() => {
+    fetchFoods(0, false);
+  }, [fetchFoods]);
 
-  if (loading) return <div className="text-center py-10 text-[#193900]">Loading fresh ingredients...</div>;
+  const handleLoadMore = () => fetchFoods(offset, true);
 
   return (
-    <section className="mx-auto max-w-300 px-4 py-8 md:px-8 md:py-12">
+    <section className="mx-auto max-w-300 px-4 pt-2 pb-12 md:px-8">
       <h2 className="mb-8 text-center text-2xl font-bold text-[#193900] md:text-3xl">
-        Top Ingredients (By Eco Score)
+        Ingredients (By Eco Score)
       </h2>
       
-      <ul className="grid list-none grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8 rounded-2xl border border-[#193900]/20 bg-white/30 p-8 text-center backdrop-blur-md md:p-12">
-        {foods.map((item) => (
-          <li key={item.id} className="contents">
-            <div className="relative group">
-              
-              {/* The Card Link */}
-              <Link 
-                href={`/item/${item.id}`}
-                className="flex min-h-36 w-full cursor-pointer flex-col items-center justify-center rounded-2xl bg-white p-6 text-center text-[#193900] shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg"
-              >
-                {/* Eco Score Badge */}
-                <span className={`mb-2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide ${
-                    (item.eco_score || 0) >= 8 ? 'bg-green-100 text-green-800' :
-                    (item.eco_score || 0) >= 5 ? 'bg-yellow-100 text-yellow-800' :
-                    'bg-red-100 text-red-800'
-                }`}>
-                    Eco Score: {item.eco_score}/10
-                </span>
-
-                <span className="capitalize text-lg font-semibold">{item.name}</span>
-                <span className="text-xs uppercase text-[#193900]/60 mt-1">{item.season}</span>
-              </Link>
-
-              {/* The "+" Add Button */}
-              <button
-                onClick={(e) => {
-                  e.preventDefault(); 
-                  e.stopPropagation();
-                  onAddToCart(item);
-                }}
-                className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#193900]/10 text-[#193900] transition-colors hover:bg-[#193900] hover:text-white"
-                title="Add to Cart"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                  <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-                </svg>
+      {foods.length === 0 && !loading ? (
+        <div className="text-center text-[#193900]/60">
+            No ingredients match your filters.
+        </div>
+      ) : (
+        <>
+          <ul className="grid list-none grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8 rounded-2xl border border-[#193900]/20 bg-white/30 p-8 text-center backdrop-blur-md md:p-12">
+            {foods.map((item) => (
+              <li key={item.id} className="contents">
+                <div className="relative group h-full">
+                  <Link href={`/item/${item.id}`} className="flex h-full min-h-36 w-full cursor-pointer flex-col items-center justify-center rounded-2xl bg-white p-6 text-center text-[#193900] shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
+                    <span className={`mb-2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide ${
+                        (item.eco_score || 0) >= 8 ? 'bg-green-100 text-green-800' :
+                        (item.eco_score || 0) >= 5 ? 'bg-yellow-100 text-yellow-800' :
+                        'bg-red-100 text-red-800'
+                    }`}>
+                        Eco Score: {item.eco_score}/10
+                    </span>
+                    <span className="capitalize text-lg font-semibold">{item.name}</span>
+                    <span className="text-xs uppercase text-[#193900]/60 mt-1">{item.season}</span>
+                  </Link>
+                  <button onClick={(e) => { e.preventDefault(); e.stopPropagation(); onAddToCart(item); }} className="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-[#193900]/10 text-[#193900] transition-colors hover:bg-[#193900] hover:text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5"><path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" /></svg>
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          {hasMore && (
+            <div className="mt-8 flex justify-center">
+              <button onClick={handleLoadMore} disabled={loading} className="rounded-full bg-[#193900] px-8 py-3 text-sm font-bold text-white shadow-lg transition-transform hover:scale-105 disabled:opacity-50 disabled:hover:scale-100">
+                {loading ? "Loading..." : "Load More Ingredients"}
               </button>
-
             </div>
-          </li>
-        ))}
-      </ul>
+          )}
+        </>
+      )}
     </section>
   );
 }
 
-function ShoppingCart({ 
-  cartItems, 
-  onGenerate 
-}: { 
-  cartItems: CartItem[], 
-  onGenerate: () => void 
-}) {
-  const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  return (
-    <div className="fixed right-4 top-24 h-[600px] w-64 rounded-xl border border-[#193900]/20 bg-white/95 backdrop-blur shadow-2xl z-40 flex flex-col overflow-hidden">
-      {/* Cart Header */}
-      <div className="border-b border-gray-200 bg-[#193900]/5 p-4">
-        <h2 className="text-lg font-bold text-[#193900] flex items-center gap-2">
-          <span>🛒</span> Your Basket
-        </h2>
-        <p className="text-xs text-[#193900]/60">{totalItems} ingredients selected</p>
-      </div>
-
-      {/* Cart Items List */}
-      <div className="flex-1 overflow-y-auto p-4">
-        {cartItems.length === 0 ? (
-          <div className="flex h-full flex-col items-center justify-center text-gray-400">
-            <p className="text-center text-sm">Add ingredients to generate a recipe!</p>
-          </div>
-        ) : (
-          <ul className="space-y-2">
-            {cartItems.map((item) => (
-              <li
-                key={item.id}
-                className="flex items-center justify-between rounded-lg border border-gray-100 bg-gray-50 p-3 shadow-sm"
-              >
-                <span className="text-sm font-semibold capitalize text-[#193900]">{item.name}</span>
-                <span className="rounded-full bg-[#193900]/10 px-2 py-0.5 text-xs font-bold text-[#193900]">
-                  x{item.quantity}
-                </span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {/* Footer / Generate Button */}
-      <div className="border-t border-gray-200 p-4 bg-white">
-        <button
-          onClick={onGenerate}
-          disabled={cartItems.length === 0}
-          className="w-full rounded-lg bg-[#193900] py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-[#193900]/90 disabled:cursor-not-allowed disabled:opacity-50 hover:scale-[1.02]"
-        >
-          ✨ Generate Recipe
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// --- Main Page ---
+// --- HOME PAGE ---
 
 export default function Home() {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [generatedRecipes, setGeneratedRecipes] = useState<Recipe['results']>([]);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [savedTitles, setSavedTitles] = useState<Set<string>>(new Set());
 
-  // Add Item Logic
+  // --- NEW: Filter States ---
+  const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedSeason, setSelectedSeason] = useState("All");
+  const [ecoRange, setEcoRange] = useState<[number, number]>([1, 10]);
+
+  // Fetch Categories on Mount
+  useEffect(() => {
+    api.getCategory().then(setCategories).catch(console.error);
+  }, []);
+
   const handleAddToCart = (food: Food) => {
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === food.id);
-      if (existing) {
-        return prev.map((item) =>
-          item.id === food.id ? { ...item, quantity: item.quantity + 1 } : item
-        );
-      }
+      if (existing) return prev.map((item) => item.id === food.id ? { ...item, quantity: item.quantity + 1 } : item);
       return [...prev, { id: food.id!, name: food.name, quantity: 1 }];
     });
   };
 
-  // Generate Logic
   const handleGenerate = async () => {
     if (cartItems.length === 0) return;
-    
     setIsGenerating(true);
     const ingredientsList = cartItems.map(i => i.name);
-    
     try {
       const response = await api.getRecipes(ingredientsList);
       setGeneratedRecipes(response.results);
-      
-      setTimeout(() => {
-        document.getElementById('recipe-results')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      setTimeout(() => { document.getElementById('recipe-results')?.scrollIntoView({ behavior: 'smooth' }); }, 100);
     } catch (e) {
       console.error("Error generating recipes", e);
       alert("Failed to generate recipes. Please try again.");
@@ -226,51 +281,77 @@ export default function Home() {
     }
   };
 
+  const handleSaveRecipe = async (recipe: typeof generatedRecipes[0]) => {
+    try {
+      await api.setSavedRecipe({ title: recipe.title, instructions: recipe.instructions, ingredients_used: recipe.ingredients_used });
+      setSavedTitles(prev => new Set(prev).add(recipe.title));
+    } catch (e) {
+      console.error("Error saving recipe", e);
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-[#e7dcc8] relative pb-20">
+    <main className="min-h-screen bg-[#e7dcc8] relative pb-20 md:pr-80 transition-all duration-300">
       
       <ShoppingCart cartItems={cartItems} onGenerate={handleGenerate} />
       
       <SearchBar onSearch={setSearchQuery} />
-      
-      <Ingredients onAddToCart={handleAddToCart} searchQuery={searchQuery} />
 
-      {/* Results Section */}
+      {/* FILTER BAR INSERTED HERE */}
+      <div className="px-4 md:px-8">
+        <FilterBar 
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            selectedSeason={selectedSeason}
+            onSeasonChange={setSelectedSeason}
+            ecoRange={ecoRange}
+            onEcoRangeChange={setEcoRange}
+        />
+      </div>
+
       {(generatedRecipes.length > 0 || isGenerating) && (
-        <section id="recipe-results" className="mx-auto max-w-300 px-4 py-12 md:px-8">
-          <div className="border-t border-[#193900]/20 pt-12">
-            <h2 className="mb-8 text-center text-3xl font-bold text-[#193900]">
-              {isGenerating ? "Cooking up ideas..." : "AI Suggested Recipes"}
-            </h2>
-
-            {isGenerating ? (
-              <div className="flex justify-center">
-                <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#193900] border-t-transparent"></div>
-              </div>
-            ) : (
-              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {generatedRecipes.map((recipe, idx) => (
-                  <div key={idx} className="overflow-hidden rounded-2xl bg-white shadow-lg">
-                    <div className="bg-[#193900] p-4 text-white">
-                      <h3 className="text-xl font-bold">{recipe.title}</h3>
+        <section id="recipe-results" className="mx-auto max-w-300 px-4 pt-0 pb-8 md:px-8">
+            <div className="rounded-3xl bg-[#193900]/5 p-8 border border-[#193900]/10">
+                <h2 className="mb-8 text-center text-3xl font-bold text-[#193900]">
+                {isGenerating ? "Cooking up ideas..." : "AI Suggested Recipes"}
+                </h2>
+                {isGenerating ? (
+                    <div className="flex justify-center py-12">
+                        <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#193900] border-t-transparent"></div>
                     </div>
-                    <div className="p-6">
-                      <div className="mb-4">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Ingredients Used</h4>
-                        <p className="text-sm text-[#193900]/80 italic">{recipe.ingredients_used}</p>
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Instructions</h4>
-                        <p className="text-sm text-[#193900] whitespace-pre-line">{recipe.instructions}</p>
-                      </div>
+                ) : (
+                    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                        {generatedRecipes.map((recipe, idx) => {
+                            const isSaved = savedTitles.has(recipe.title);
+                            return (
+                                <div key={idx} className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:-translate-y-1">
+                                    <div className="bg-[#193900] p-4 text-white"><h3 className="text-xl font-bold">{recipe.title}</h3></div>
+                                    <div className="flex-1 p-6">
+                                        <div className="mb-4"><h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Ingredients Used</h4><p className="text-sm text-[#193900]/80 italic">{recipe.ingredients_used}</p></div>
+                                        <div><h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Instructions</h4><p className="text-sm text-[#193900] whitespace-pre-line">{recipe.instructions}</p></div>
+                                    </div>
+                                    <div className="border-t border-gray-100 bg-gray-50 p-4">
+                                        <button onClick={() => !isSaved && handleSaveRecipe(recipe)} disabled={isSaved} className={`flex w-full items-center justify-center gap-2 rounded-lg border-2 px-4 py-2 text-sm font-bold transition-all ${isSaved ? "border-green-600 bg-green-100 text-green-700 cursor-default" : "border-[#193900] text-[#193900] hover:bg-[#193900] hover:text-white"}`}>
+                                            {isSaved ? "Saved!" : "Save to Cookbook"}
+                                        </button>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+                )}
+            </div>
         </section>
       )}
+      
+      <Ingredients 
+        onAddToCart={handleAddToCart} 
+        searchQuery={searchQuery}
+        selectedCategory={selectedCategory}
+        selectedSeason={selectedSeason}
+        ecoRange={ecoRange}
+      />
     </main>
   );
 }

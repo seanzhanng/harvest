@@ -6,7 +6,7 @@ import NavBar from "@/components/NavBar"; // Adjust import path if needed
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Food Explorer",
+  title: "Harvest",
   description: "Discover seasonal ingredients and recipes",
 };
 

@@ -5,19 +5,26 @@ def test_final_pipeline():
     # Testing with multiple items to see how the AI combines them
     payload = {"ingredients": ["apple", "bread"]}
     
-    print("🚀 Testing Multi-Source Pipeline...")
+    print("🚀 Testing AI Recipe Generation Pipeline...")
     try:
         response = requests.post(url, json=payload)
         data = response.json()
         
         print(f"Status: {response.status_code}")
-        for res in data.get("results", []):
-            print(f"🍴 {res['meal_name']}")
-            print(f"🔗 {res['recipe_link']}\n")
+        
+        if response.status_code != 200:
+            print(f"❌ Error: {data}")
+            return
+
+        for i, res in enumerate(data.get("results", []), 1):
+            print(f"🍴 Recipe #{i}: {res['title']}")
+            print(f"📝 Instructions: {res['instructions'][:100]}...") # Truncate for cleaner output
+            print(f"🥕 Ingredients: {res['ingredients_used']}\n")
             
-            # Validation: Ensure link is actually there
-            if not res['recipe_link'] or "No link" in res['recipe_link']:
-                print("❌ FAIL: Empty link found!")
+            # Validation: Ensure essential fields are present
+            if not res['instructions'] or res['instructions'] == "No instructions provided.":
+                print("❌ FAIL: Missing instructions!")
+                
     except Exception as e:
         print(f"Error: {e}")
 

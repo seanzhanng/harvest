@@ -73,9 +73,9 @@ function Ingredients() {
       <h2 className="ingredients-title">Ingredients in Season</h2>
       <div className="ingredients-grid">
         {produce.map( (produce_item, index) => (
-          <Link key={index} href={`/item/${produce_item}`}>
-            <li key={index} className="produce-card">
-              <div>{produce_item}</div>
+          <Link key={index} href={`/item/${produce_item.item}`}>
+            <li className="produce-card">
+              <div>{produce_item.item}</div>
             </li>
           </Link>
           

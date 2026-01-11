@@ -4,7 +4,6 @@ from models import Food
 
 def seed_data():
     with Session(engine) as session:
-        # Check if we already have data
         existing = session.exec(select(Food)).first()
         if existing:
             print("⚠️  Data already exists. Skipping seed to prevent duplicates.")

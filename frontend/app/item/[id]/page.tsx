@@ -1,40 +1,68 @@
 'use client';
 import { useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import NavBar from '@/components/NavBar';
+import { api, RecipeResult } from '@/lib/api';
+import Image from 'next/image'; // <--- Import this
+import '@/styles/styling.css';
 
 export default function ItemPage() {
-    // useParams() returns an object where the keys are the names of the parameters 
-    // defined in route path and the values are the corresponding segments from the actual URL
     const params = useParams();
-    const id = params.id;
-    const [item, setItem] = useState< {item: string, season: string} | null >(null);
-    const[loading, setLoading] = useState(true);
+    const id = decodeURIComponent(params.id as string);
+    
+    const [recipes, setRecipes] = useState<RecipeResult[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchItem = async() => {
+        const fetchPipeline = async() => {
             try {
-                //const response = await fetch('GET Endpoint') with {id} in the URL
-                //const data = await response.json()
-                //setItem(data)
-                setItem({item: "apple", season: "fall"})
+                const results = await api.autoSuggest([id]);
+                setRecipes(results);
             } catch (error) {
-                console.error('Failed to fetch item:', error);
+                console.error('Failed to fetch item data:', error);
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
         };
 
-        if (id) fetchItem();
-    }, [id])
+        if (id) fetchPipeline();
+    }, [id]);
 
-    if (loading) return <div>Loading...</div>
-    if (!item) return <div>Item not found</div>
+    if (loading) return (
+      <div className="loading-container">
+         <div className="loading-text">Finding top-rated recipes for {id}...</div>
+      </div>
+    );
   
     return (
-        <div>
-            <h1>{'item.name'}</h1>
-            <h1>recipes for this item</h1>
-            <p>{'item.recipe'}</p>
+        <div className="recipes-container">
+            <NavBar />
+            <div className="recipes-header">
+                <h1 className="recipes-title">{id}</h1>
+                <p className="recipes-subtitle">AI-CURATED RECIPES FOR THIS INGREDIENT</p>
+            </div>
+
+            <div className="recipes-grid">
+              {recipes.map((recipe, idx) => (
+                <div
+                  key={idx}
+                  onClick={() => window.open(recipe.recipe_link, '_blank')}
+                  className="recipe-card"
+                >
+                  {/* --- UPDATED IMAGE TAG --- */}
+                  <div style={{ position: 'relative', width: '100%', height: '200px' }}>
+                    <Image
+                      src={`https://source.unsplash.com/400x300/?${recipe.meal_name.replace(/\s/g, ',')}`}
+                      alt={recipe.meal_name}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      unoptimized // Skips complex config for external images
+                    />
+                  </div>
+                  <h3 className="recipe-name">{recipe.meal_name}</h3>
+                </div>
+              ))}
+            </div>
         </div>
   );
 }

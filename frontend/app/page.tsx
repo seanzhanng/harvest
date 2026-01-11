@@ -1,35 +1,29 @@
 'use client';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import './home-styling.css';
+import NavBar from '@/components/NavBar';
+import { useFoods } from '@/hooks/useFoods'; // <--- Using the Hook
+import '@/styles/home-styling.css';
 
-function NavBar() {
+export default function Home() {
   return (
-    <nav className="navbar">
-      <div className="nav-container">
-        <h2 className="nav-logo">Food Explorer</h2>
-        <Link href="/recipes" className="nav-link">
-          Recipes
-        </Link>
-      </div>
-    </nav>
+    <div className="home-container">
+      <NavBar />
+      <SearchBar />
+      <IngredientsGrid />
+    </div>
   );
 }
 
 function SearchBar() {
-  const [item, setItem] = useState("");
-  const [results, setResults] = useState([]);
+  const [query, setQuery] = useState("");
+  const router = useRouter();
 
-  const handleSearch = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchedItem = e.target.value;
-    setItem(searchedItem);
-    
-    try {
-      // const result = await fetch('...') // use GET method
-      // const items = await result.json()
-      // setResults(items)
-    } catch (error) {
-      console.error('Search failed:', error);
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (query.trim()) {
+      router.push(`/recipes?q=${encodeURIComponent(query)}`);
     }
   };
 
@@ -39,12 +33,12 @@ function SearchBar() {
         <h1 className="search-title">Find the Perfect Recipe</h1>
         <p className="search-subtitle">SEARCH INGREDIENTS OR DISHES</p>
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className="search-form">
+      <form onSubmit={handleSearch} className="search-form">
         <input 
           type="text" 
-          placeholder="Search for food items or recipes..." 
-          value={item} 
-          onChange={handleSearch}
+          placeholder="Search for food items (e.g. Chicken, Rice)..." 
+          value={query} 
+          onChange={(e) => setQuery(e.target.value)}
           className="search-input"
         />
       </form>
@@ -52,45 +46,28 @@ function SearchBar() {
   );
 }
 
-function Ingredients() {
-  const [produce, setProduce] = useState<Array<{item: string, season: string}>>([])
-  const handleSetProduce = async () => {
-    //database returns a response object
-    //const results = await fetch('GET endpoint')
+function IngredientsGrid() {
+  // The hook handles loading state and DB calls for you
+  const { foods, loading } = useFoods();
 
-    //use .json() to turn into a javascript object
-    //const data = results.json()
-    const data = [{item: "apple", season: "fall"}, {item: "cheese", season: "fall"}, {item: "banana", season: "summer"}]
-    setProduce(data)
+  if (loading && foods.length === 0) {
+    return <div style={{textAlign: 'center', padding: '2rem'}}>Loading Ingredients...</div>;
   }
-
-  useEffect(() => {
-    handleSetProduce();
-  }, [])
 
   return (
     <div className="ingredients-section">
       <h2 className="ingredients-title">Ingredients in Season</h2>
       <div className="ingredients-grid">
-        {produce.map( (produce_item, index) => (
-          <Link key={index} href={`/item/${produce_item.item}`}>
-            <li className="produce-card">
-              <div>{produce_item.item}</div>
-            </li>
+        {foods.map((item, index) => (
+          <Link key={index} href={`/item/${item.name}`} style={{textDecoration: 'none'}}>
+            <div className="produce-card">
+              <div style={{fontWeight: 'bold', fontSize: '1.2rem', color: '#193900'}}>
+                {item.name}
+              </div>
+            </div>
           </Link>
-          
         ))}
       </div>
-    </div>
-  );
-}
-
-export default function Home() {
-  return (
-    <div className="home-container">
-      <NavBar />
-      <SearchBar />
-      <Ingredients />
     </div>
   );
 }

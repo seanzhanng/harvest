@@ -1,6 +1,6 @@
 from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlmodel import Session, select, col
+from sqlmodel import Session, select, col, desc  # <--- Imported desc
 from database import get_session
 from models import Food
 
@@ -25,6 +25,8 @@ def read_foods(
         if search:
             query = query.where(col(Food.name).ilike(f"%{search}%"))
 
+        query = query.order_by(desc(Food.eco_score))
+        
         query = query.offset(offset).limit(limit)
         return session.exec(query).all()
     except Exception as e:

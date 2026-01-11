@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react'; // Added useCallback
+import { useState, useEffect, useCallback } from 'react';
 import { api, Food, Recipe } from '@/utils/api';
 import ShoppingCart, { CartItem } from '@/components/ShoppingCart';
 
-// --- NEW COMPONENT: Filter Bar ---
+// --- COMPONENT: Filter Bar ---
 
 interface FilterBarProps {
   categories: string[];
@@ -23,7 +23,6 @@ function FilterBar({
   ecoRange, onEcoRangeChange 
 }: FilterBarProps) {
   
-  // Dual Slider Logic
   const handleMinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = Math.min(Number(e.target.value), ecoRange[1] - 1);
     onEcoRangeChange([val, ecoRange[1]]);
@@ -35,7 +34,7 @@ function FilterBar({
   };
 
   return (
-    <div className="mx-auto mb-8 flex max-w-4xl flex-col gap-6 rounded-2xl bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between">
+    <div className="mx-auto mb-8 flex max-w-5xl flex-col gap-6 rounded-2xl bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between">
       
       {/* 1. Category Dropdown */}
       <div className="flex-1">
@@ -111,7 +110,7 @@ function SearchBar({ onSearch }: { onSearch: (query: string) => void }) {
     onSearch(e.target.value);
   };
   return (
-    <section className="mx-auto max-w-300 px-4 pt-12 pb-4 text-center md:px-8 md:pt-16 md:pb-6">
+    <section className="mx-auto max-w-5xl px-4 pt-12 pb-4 text-center md:px-8 md:pt-16 md:pb-6">
       <div className="mb-6">
         <h1 className="mb-2 text-3xl font-bold text-[#193900] sm:text-4xl md:text-5xl">
           Find the Perfect Recipe
@@ -145,10 +144,8 @@ function Ingredients({
   const [hasMore, setHasMore] = useState(true);
   const LIMIT = 20;
 
-  // Destructure ecoRange to fix "complex expression" dependency warning
   const [minEco, maxEco] = ecoRange;
 
-  // Memoize fetchFoods so it can be a dependency of useEffect
   const fetchFoods = useCallback(async (currentOffset: number, isLoadMore: boolean) => {
     setLoading(true);
     try {
@@ -183,7 +180,6 @@ function Ingredients({
     }
   }, [selectedSeason, searchQuery, selectedCategory, minEco, maxEco]);
 
-  // Trigger fetch when filters change (implicitly fetches page 0)
   useEffect(() => {
     fetchFoods(0, false);
   }, [fetchFoods]);
@@ -191,7 +187,7 @@ function Ingredients({
   const handleLoadMore = () => fetchFoods(offset, true);
 
   return (
-    <section className="mx-auto max-w-300 px-4 pt-2 pb-12 md:px-8">
+    <section className="mx-auto max-w-5xl px-4 pt-2 pb-12 md:px-8">
       <h2 className="mb-8 text-center text-2xl font-bold text-[#193900] md:text-3xl">
         Ingredients (By Eco Score)
       </h2>
@@ -246,7 +242,10 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [savedTitles, setSavedTitles] = useState<Set<string>>(new Set());
 
-  // --- NEW: Filter States ---
+  // State: Cart Open/Close (Default: False/Closed)
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // Filter States
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSeason, setSelectedSeason] = useState("All");
@@ -257,12 +256,20 @@ export default function Home() {
     api.getCategory().then(setCategories).catch(console.error);
   }, []);
 
+  // --- 1. ADD: Auto Open Cart ---
   const handleAddToCart = (food: Food) => {
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === food.id);
       if (existing) return prev.map((item) => item.id === food.id ? { ...item, quantity: item.quantity + 1 } : item);
       return [...prev, { id: food.id!, name: food.name, quantity: 1 }];
     });
+    // Automatically open the cart when user adds an item
+    setIsCartOpen(true);
+  };
+
+  // --- 2. REMOVE: Logic to remove item ---
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems((prev) => prev.filter(item => item.id !== id));
   };
 
   const handleGenerate = async () => {
@@ -291,13 +298,20 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#e7dcc8] relative pb-20 md:pr-80 transition-all duration-300">
+    <main className={`min-h-screen bg-[#e7dcc8] relative pb-20 transition-all duration-300 ease-in-out ${
+      isCartOpen ? 'md:pr-80' : '' 
+    }`}>
       
-      <ShoppingCart cartItems={cartItems} onGenerate={handleGenerate} />
+      <ShoppingCart 
+        cartItems={cartItems} 
+        onGenerate={handleGenerate} 
+        isOpen={isCartOpen}
+        setIsOpen={setIsCartOpen}
+        onRemoveItem={handleRemoveFromCart}
+      />
       
       <SearchBar onSearch={setSearchQuery} />
 
-      {/* FILTER BAR INSERTED HERE */}
       <div className="px-4 md:px-8">
         <FilterBar 
             categories={categories}
@@ -311,7 +325,7 @@ export default function Home() {
       </div>
 
       {(generatedRecipes.length > 0 || isGenerating) && (
-        <section id="recipe-results" className="mx-auto max-w-300 px-4 pt-0 pb-8 md:px-8">
+        <section id="recipe-results" className="mx-auto max-w-5xl px-4 pt-0 pb-8 md:px-8">
             <div className="rounded-3xl bg-[#193900]/5 p-8 border border-[#193900]/10">
                 <h2 className="mb-8 text-center text-3xl font-bold text-[#193900]">
                 {isGenerating ? "Cooking up ideas..." : "AI Suggested Recipes"}
@@ -326,10 +340,39 @@ export default function Home() {
                             const isSaved = savedTitles.has(recipe.title);
                             return (
                                 <div key={idx} className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:-translate-y-1">
-                                    <div className="bg-[#193900] p-4 text-white"><h3 className="text-xl font-bold">{recipe.title}</h3></div>
+                                    
+                                    {/* HEADER with CO2 BADGE */}
+                                    <div className="bg-[#193900] p-4 text-white relative">
+                                        <h3 className="text-xl font-bold pr-16 leading-tight">{recipe.title}</h3>
+                                        <div className="absolute top-4 right-4 flex flex-col items-end">
+                                            <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">
+                                                Saved
+                                            </span>
+                                            <span className="text-xs font-bold mt-1 text-green-200">
+                                                {recipe.co2_saved}
+                                            </span>
+                                        </div>
+                                    </div>
+
                                     <div className="flex-1 p-6">
-                                        <div className="mb-4"><h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Ingredients Used</h4><p className="text-sm text-[#193900]/80 italic">{recipe.ingredients_used}</p></div>
-                                        <div><h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Instructions</h4><p className="text-sm text-[#193900] whitespace-pre-line">{recipe.instructions}</p></div>
+                                        {/* ECO BENEFIT SECTION */}
+                                        <div className="mb-6 rounded-lg bg-green-50 p-3 border border-green-100">
+                                            <h4 className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-green-800">
+                                                <span>🌍</span> Why it's good
+                                            </h4>
+                                            <p className="text-xs text-[#193900]/80 mt-1 leading-snug">
+                                                {recipe.eco_benefit}
+                                            </p>
+                                        </div>
+
+                                        <div className="mb-4">
+                                            <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Ingredients Used</h4>
+                                            <p className="text-sm text-[#193900]/80 italic">{recipe.ingredients_used}</p>
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Instructions</h4>
+                                            <p className="text-sm text-[#193900] whitespace-pre-line">{recipe.instructions}</p>
+                                        </div>
                                     </div>
                                     <div className="border-t border-gray-100 bg-gray-50 p-4">
                                         <button onClick={() => !isSaved && handleSaveRecipe(recipe)} disabled={isSaved} className={`flex w-full items-center justify-center gap-2 rounded-lg border-2 px-4 py-2 text-sm font-bold transition-all ${isSaved ? "border-green-600 bg-green-100 text-green-700 cursor-default" : "border-[#193900] text-[#193900] hover:bg-[#193900] hover:text-white"}`}>

@@ -27,6 +27,8 @@ export interface Recipe {
         title: string;
         instructions: string;
         ingredients_used: string;
+        co2_saved: string;
+        eco_benefit: string;
     }>;
 }
 

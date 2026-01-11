@@ -6,3 +6,14 @@ from models import SavedRecipe
 
 router = APIRouter()
 
+class RecipeSaveRequest(BaseModel):
+    # your code here
+
+@router.post("/recipes/save/")
+# your code here
+
+@router.get("/recipes/")
+# your code here
+
+@router.delete("/recipes/{recipe_id}")
+# your code here

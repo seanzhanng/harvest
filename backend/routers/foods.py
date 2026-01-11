@@ -18,7 +18,7 @@ class CreateFoodResponse(SQLModel):
     status_code: int
     name: str
 
-@router.get("/foods/", response_model=List[CreateFoodResponse], status_code=status.HTTP_200_OK)
+@router.get("/foods/", response_model=List[CreateFoodResponse])
 def read_foods(
     session: Session = Depends(get_session),
     category: Optional[str] = None,
@@ -55,7 +55,7 @@ def read_foods(
         print(f"Error reading foods: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-@router.get("/foods/{food_id}", response_model=CreateFoodResponse, status_code=status.HTTP_200_OK)
+@router.get("/foods/{food_id}", response_model=CreateFoodResponse)
 def read_single_food(food_id: int, session: Session = Depends(get_session)):
     try:
         f = session.get(Food, food_id)
@@ -72,7 +72,7 @@ def read_single_food(food_id: int, session: Session = Depends(get_session)):
         print(f"Error reading single food: {e}")
         raise HTTPException(status_code=500, detail="Internal Server Error")
 
-@router.post("/foods/", response_model=CreateFoodResponse, status_code=status.HTTP_201_CREATED)
+@router.post("/foods/", response_model=CreateFoodResponse)
 def create_food(food_in: CreateFoodRequest, session: Session = Depends(get_session)):
     try:
         db_food = Food(
@@ -97,7 +97,7 @@ def create_food(food_in: CreateFoodRequest, session: Session = Depends(get_sessi
         print(f"Error creating food: {e}")
         raise HTTPException(status_code=500, detail="Could not create food item")
 
-@router.get("/foods/categories", status_code=status.HTTP_200_OK)
+@router.get("/foods/categories")
 def get_categories(session: Session = Depends(get_session)):
     try:
         statement = select(Food.category).distinct()

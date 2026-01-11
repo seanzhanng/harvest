@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select, col
 from database import get_session
 from models import Food
@@ -35,3 +35,10 @@ def get_categories(session: Session = Depends(get_session)):
     statement = select(Food.category).distinct()
     results = session.exec(statement).all()
     return results
+
+@router.get("/foods/{food_id}")
+def read_single_food(food_id: int, session: Session = Depends(get_session)):
+    food = session.get(Food, food_id)
+    if not food:
+        raise HTTPException(status_code=404, detail="Food not found")
+    return food

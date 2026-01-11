@@ -66,8 +66,42 @@ def generate_recipe(cart: CartRequest):
             return {"recipe_json": clean_text}
             
         except Exception as e:
-            print(f"Key failed: {e}")
             last_error = str(e)
             continue
 
     return {"error": f"All API keys failed. Last error: {last_error}"}
+
+@router.get("/suggestions/{food_name}")
+def get_food_suggestions(food_name: str):
+    if not API_KEYS:
+        raise HTTPException(status_code=500, detail="No API Keys configured")
+
+    prompt = f"""
+    Give me 3 creative, short recipe titles that feature '{food_name}' as the star ingredient.
+    Return ONLY a JSON list of strings. Example: ["Spicy {food_name} Soup", "Baked {food_name} Chips", "{food_name} Salad"]
+    Do not write any markdown or extra text.
+    """
+
+    last_error = ""
+    random.shuffle(API_KEYS)
+
+    for key in API_KEYS:
+        try:
+            client = OpenAI(
+                base_url="[https://openrouter.ai/api/v1](https://openrouter.ai/api/v1)",
+                api_key=key,
+            )
+            
+            response = client.chat.completions.create(
+                model=MODEL_NAME,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            content = response.choices[0].message.content
+            clean_text = content.replace("```json", "").replace("```", "").strip()
+            return {"suggestions": clean_text}
+            
+        except Exception as e:
+            last_error = str(e)
+            continue
+
+    return {"error": f"Failed to get suggestions. {last_error}"}

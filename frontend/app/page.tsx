@@ -5,6 +5,27 @@ import { useState, useEffect, useCallback } from 'react';
 import { api, Food, Recipe } from '@/utils/api';
 import ShoppingCart, { CartItem } from '@/components/ShoppingCart';
 
+// --- HELPER: Format Markdown Text ---
+// This turns "**Bold Text**" into actual <strong>Bold Text</strong>
+function FormatInstructions({ text }: { text: string }) {
+  if (!text) return null;
+  
+  // Split by double asterisks
+  const parts = text.split(/(\*\*.*?\*\*)/g);
+  
+  return (
+    <p className="text-sm text-[#193900] whitespace-pre-line">
+      {parts.map((part, index) => {
+        if (part.startsWith('**') && part.endsWith('**')) {
+          // Remove asterisks and render bold
+          return <strong key={index} className="block mt-2 mb-1 text-[#193900]">{part.slice(2, -2)}</strong>;
+        }
+        return <span key={index}>{part}</span>;
+      })}
+    </p>
+  );
+}
+
 // --- COMPONENT: Filter Bar ---
 
 interface FilterBarProps {
@@ -35,28 +56,16 @@ function FilterBar({
 
   return (
     <div className="mx-auto mb-8 flex max-w-5xl flex-col gap-6 rounded-2xl bg-white p-6 shadow-sm md:flex-row md:items-end md:justify-between">
-      
-      {/* 1. Category Dropdown */}
       <div className="flex-1">
         <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-[#193900]/60">Category</label>
-        <select 
-          value={selectedCategory}
-          onChange={(e) => onCategoryChange(e.target.value)}
-          className="w-full rounded-lg border border-[#193900]/20 bg-[#f8f5f0] p-3 text-[#193900] outline-none focus:border-[#193900]"
-        >
+        <select value={selectedCategory} onChange={(e) => onCategoryChange(e.target.value)} className="w-full rounded-lg border border-[#193900]/20 bg-[#f8f5f0] p-3 text-[#193900] outline-none focus:border-[#193900]">
           <option value="All">All Categories</option>
           {categories.map(c => <option key={c} value={c}>{c}</option>)}
         </select>
       </div>
-
-      {/* 2. Season Dropdown */}
       <div className="flex-1">
         <label className="mb-2 block text-xs font-bold uppercase tracking-wider text-[#193900]/60">Season</label>
-        <select 
-          value={selectedSeason}
-          onChange={(e) => onSeasonChange(e.target.value)}
-          className="w-full rounded-lg border border-[#193900]/20 bg-[#f8f5f0] p-3 text-[#193900] outline-none focus:border-[#193900]"
-        >
+        <select value={selectedSeason} onChange={(e) => onSeasonChange(e.target.value)} className="w-full rounded-lg border border-[#193900]/20 bg-[#f8f5f0] p-3 text-[#193900] outline-none focus:border-[#193900]">
           <option value="All">All Seasons</option>
           <option value="Spring">Spring</option>
           <option value="Summer">Summer</option>
@@ -65,36 +74,16 @@ function FilterBar({
           <option value="All Year">All Year</option>
         </select>
       </div>
-
-      {/* 3. Eco Score Dual Slider */}
       <div className="flex-[1.5]">
         <div className="mb-2 flex justify-between">
             <label className="text-xs font-bold uppercase tracking-wider text-[#193900]/60">Eco Score Range</label>
             <span className="text-xs font-bold text-[#193900]">{ecoRange[0]} - {ecoRange[1]}</span>
         </div>
-        
         <div className="relative h-10 pt-4">
-            {/* Visual Track */}
             <div className="absolute top-5 h-1 w-full rounded-full bg-gray-200"></div>
-            <div 
-                className="absolute top-5 h-1 rounded-full bg-[#193900]"
-                style={{
-                    left: `${(ecoRange[0] - 1) * 11.1}%`,
-                    right: `${100 - ((ecoRange[1] - 1) * 11.1)}%`
-                }}
-            ></div>
-
-            {/* Hidden Inputs for Handles */}
-            <input 
-                type="range" min="1" max="10" step="1"
-                value={ecoRange[0]} onChange={handleMinChange}
-                className="pointer-events-none absolute top-3 w-full appearance-none bg-transparent [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#193900] [&::-webkit-slider-thumb]:shadow-md"
-            />
-            <input 
-                type="range" min="1" max="10" step="1"
-                value={ecoRange[1]} onChange={handleMaxChange}
-                className="pointer-events-none absolute top-3 w-full appearance-none bg-transparent [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#193900] [&::-webkit-slider-thumb]:shadow-md"
-            />
+            <div className="absolute top-5 h-1 rounded-full bg-[#193900]" style={{ left: `${(ecoRange[0] - 1) * 11.1}%`, right: `${100 - ((ecoRange[1] - 1) * 11.1)}%` }}></div>
+            <input type="range" min="1" max="10" step="1" value={ecoRange[0]} onChange={handleMinChange} className="pointer-events-none absolute top-3 w-full appearance-none bg-transparent [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#193900] [&::-webkit-slider-thumb]:shadow-md"/>
+            <input type="range" min="1" max="10" step="1" value={ecoRange[1]} onChange={handleMaxChange} className="pointer-events-none absolute top-3 w-full appearance-none bg-transparent [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#193900] [&::-webkit-slider-thumb]:shadow-md"/>
         </div>
       </div>
     </div>
@@ -149,16 +138,7 @@ function Ingredients({
   const fetchFoods = useCallback(async (currentOffset: number, isLoadMore: boolean) => {
     setLoading(true);
     try {
-      const data = await api.getFoods(
-        selectedSeason, 
-        searchQuery, 
-        selectedCategory, 
-        minEco, 
-        maxEco, 
-        currentOffset, 
-        LIMIT
-      );
-      
+      const data = await api.getFoods(selectedSeason, searchQuery, selectedCategory, minEco, maxEco, currentOffset, LIMIT);
       if (data.length < LIMIT) setHasMore(false);
       else setHasMore(true);
 
@@ -193,9 +173,7 @@ function Ingredients({
       </h2>
       
       {foods.length === 0 && !loading ? (
-        <div className="text-center text-[#193900]/60">
-            No ingredients match your filters.
-        </div>
+        <div className="text-center text-[#193900]/60">No ingredients match your filters.</div>
       ) : (
         <>
           <ul className="grid list-none grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-8 rounded-2xl border border-[#193900]/20 bg-white/30 p-8 text-center backdrop-blur-md md:p-12">
@@ -204,12 +182,8 @@ function Ingredients({
                 <div className="relative group h-full">
                   <Link href={`/item/${item.id}`} className="flex h-full min-h-36 w-full cursor-pointer flex-col items-center justify-center rounded-2xl bg-white p-6 text-center text-[#193900] shadow-md transition-all duration-200 hover:scale-105 hover:shadow-lg">
                     <span className={`mb-2 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wide ${
-                        (item.eco_score || 0) >= 8 ? 'bg-green-100 text-green-800' :
-                        (item.eco_score || 0) >= 5 ? 'bg-yellow-100 text-yellow-800' :
-                        'bg-red-100 text-red-800'
-                    }`}>
-                        Eco Score: {item.eco_score}/10
-                    </span>
+                        (item.eco_score || 0) >= 8 ? 'bg-green-100 text-green-800' : (item.eco_score || 0) >= 5 ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'
+                    }`}>Eco Score: {item.eco_score}/10</span>
                     <span className="capitalize text-lg font-semibold">{item.name}</span>
                     <span className="text-xs uppercase text-[#193900]/60 mt-1">{item.season}</span>
                   </Link>
@@ -242,32 +216,25 @@ export default function Home() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [savedTitles, setSavedTitles] = useState<Set<string>>(new Set());
 
-  // State: Cart Open/Close (Default: False/Closed)
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // Filter States
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedSeason, setSelectedSeason] = useState("All");
   const [ecoRange, setEcoRange] = useState<[number, number]>([1, 10]);
 
-  // Fetch Categories on Mount
   useEffect(() => {
     api.getCategory().then(setCategories).catch(console.error);
   }, []);
 
-  // --- 1. ADD: Auto Open Cart ---
   const handleAddToCart = (food: Food) => {
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === food.id);
       if (existing) return prev.map((item) => item.id === food.id ? { ...item, quantity: item.quantity + 1 } : item);
       return [...prev, { id: food.id!, name: food.name, quantity: 1 }];
     });
-    // Automatically open the cart when user adds an item
     setIsCartOpen(true);
   };
 
-  // --- 2. REMOVE: Logic to remove item ---
   const handleRemoveFromCart = (id: number) => {
     setCartItems((prev) => prev.filter(item => item.id !== id));
   };
@@ -341,24 +308,35 @@ export default function Home() {
                             return (
                                 <div key={idx} className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-transform hover:-translate-y-1">
                                     
-                                    {/* HEADER with CO2 BADGE */}
+                                    {/* --- HEADER FIX --- */}
+                                    {/* 1. Added relative positioning context */}
                                     <div className="bg-[#193900] p-4 text-white relative">
-                                        <h3 className="text-xl font-bold pr-16 leading-tight">{recipe.title}</h3>
-                                        <div className="absolute top-4 right-4 flex flex-col items-end">
-                                            <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">
-                                                Saved
-                                            </span>
-                                            <span className="text-xs font-bold mt-1 text-green-200">
-                                                {recipe.co2_saved}
-                                            </span>
+                                        {/* 2. Added padding-right so title doesn't hit the badges */}
+                                        <h3 className="text-xl font-bold pr-4 leading-tight">
+                                            {recipe.title}
+                                        </h3>
+                                        
+                                        {/* 3. CO2 Badge: Moved BELOW title, not overlapping */}
+                                        <div className="mt-3 flex items-center justify-between">
+                                          <span className="text-xs font-medium text-green-200 bg-[#193900] border border-green-200/30 rounded-full px-2 py-0.5">
+                                             {recipe.co2_saved}
+                                          </span>
                                         </div>
+
+                                        {/* 4. "Saved" Badge: Absolute Top Right */}
+                                        {isSaved && (
+                                            <div className="absolute top-4 right-4">
+                                                <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full shadow-sm uppercase tracking-wider">
+                                                    Saved
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="flex-1 p-6">
-                                        {/* ECO BENEFIT SECTION */}
                                         <div className="mb-6 rounded-lg bg-green-50 p-3 border border-green-100">
                                             <h4 className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-green-800">
-                                                <span>🌍</span> Why it's good
+                                                <span>🌍</span> Why it&apos;s good
                                             </h4>
                                             <p className="text-xs text-[#193900]/80 mt-1 leading-snug">
                                                 {recipe.eco_benefit}
@@ -371,7 +349,9 @@ export default function Home() {
                                         </div>
                                         <div>
                                             <h4 className="text-xs font-bold uppercase tracking-wider text-[#193900]/50 mb-1">Instructions</h4>
-                                            <p className="text-sm text-[#193900] whitespace-pre-line">{recipe.instructions}</p>
+                                            {/* --- INSTRUCTION FIX --- */}
+                                            {/* Used the helper to render bold text */}
+                                            <FormatInstructions text={recipe.instructions} />
                                         </div>
                                     </div>
                                     <div className="border-t border-gray-100 bg-gray-50 p-4">
